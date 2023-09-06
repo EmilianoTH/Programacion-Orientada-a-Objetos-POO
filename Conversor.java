@@ -52,5 +52,6 @@ public class Conversor {
                     break;
             }//fin del switch
         }//fin del while
+        leer.close();
     }//fin del main
 }//fin de la clase principal 
