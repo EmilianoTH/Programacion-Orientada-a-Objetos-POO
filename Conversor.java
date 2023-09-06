@@ -20,7 +20,7 @@ public class Conversor {
         int opcion=0;//varible usada para cerrar el ciclo
         while (opcion!=5)
         {   
-            System.out.println("|Introduce en el formato que quiera    |");
+            System.out.println("Introduce en el formato que quiera: ");
             System.out.println("|--------------------------------------|");
             System.out.println("|1) Decimal                            |");
             System.out.println("|2) Octal                              |");
