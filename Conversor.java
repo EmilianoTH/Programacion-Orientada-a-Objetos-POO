@@ -17,10 +17,14 @@ public class Conversor {
      * que quiere*/
     public static void main(String[] args) {
         Scanner leer = new Scanner(System.in); //es la forma de introducir datos
-        int opcion=0;//varible usada para cerrar el ciclo
+        Librerias c = new Librerias(); //Prueba rapida de metodos
+        String formato = "";
+        int opcion=0, decimal = 0;//varible usada para cerrar el ciclo
         while (opcion!=5)
         {   
             System.out.println("Introduce en el formato que quiera: ");
+            formato = leer.nextLine();
+            decimal = c.decidirformato(formato, leer);
             System.out.println("|--------------------------------------|");
             System.out.println("|1) Decimal                            |");
             System.out.println("|2) Octal                              |");
@@ -28,7 +32,7 @@ public class Conversor {
             System.out.println("|4) Binario                            |");
             System.out.println("|5) Salir                              |");
             System.out.println("|--------------------------------------|");
-            System.out.print("Opcion: ");
+            System.out.print("Opcion: "+decimal);
             opcion = leer.nextInt();
             switch(opcion)
             {
