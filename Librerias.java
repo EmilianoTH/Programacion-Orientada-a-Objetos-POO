@@ -12,22 +12,30 @@ public class Librerias {
     public int decidirformato(String entrada, Scanner leer){
         int decimal = 0, opcion = 0;
 
-        //Identificar el formato de la entrada con una serie de if
-        if (entrada.matches("^[01]+")) { //entrada.matches ("^[01]+") marca el rango esperado que se busca en la funcion
+        System.out.println("Presione 1 si introdujo un dato decimal\nSi no es asi, presione cualquier tecla");
+        opcion = leer.nextInt();
+        if (opcion == 1) {
+            //Se asegura que sea decimal
+            decimal = Integer.parseInt(entrada, 10);
+        }
+        else {
+            //Identificar el formato de la entrada con una serie de if
+            if (entrada.matches("^[01]+")) { //entrada.matches ("^[01]+") marca el rango esperado que se busca en la funcion
             // Si contiene 0 y 1 solamente es binario
             decimal = convertirBinarioaDecimal(entrada);
 
-        } else if (entrada.matches("^[0-7]+")) {
+            } else if (entrada.matches("^[0-7]+")) {
             // Si contiene solo dígitos del 0 al 7 es octal
             decimal = convertirOctalaDecimal(entrada);
 
-        } else if (entrada.matches("^[0-9A-Fa-f]+")) {
+            } else if (entrada.matches("^[0-9A-Fa-f]+")) {
             // Si contiene dígitos y letras de A a F es hexadecimal
             decimal = convertirHexadecimalaDecimal(entrada);
 
-        } else {
+            } else {
             // Si no cumple ninguno de los patrones anteriores, se asume que es decimal
             decimal = Integer.parseInt(entrada, 10);
+            }   
         }
 
         return decimal;
@@ -55,14 +63,21 @@ public class Librerias {
      * @return Dato octal transformado
      */
     public int convertirOctalaDecimal(String octal){
-        return Integer.parseInt(octal, 8);
-        /**
-         * En esta funcion usamos el metodo Integer parseint para transformar el string a int decimal
-         * El primer dato debe ser el string que transformaremos
-         * El numero indica la base, en este caso es 8 porque el octal es de 0 - 7
-         * Si la base fuera 2, se hablaria de binario, ya que es 0 - 1
-         * Si la base fuera 10, se hablaria de decimal, ya que es 0 - 9
-         */
+    int decimal = 0; // Inicializamos el número decimal en cero
+    int base = 1; // Inicializamos la base en 1, que es la potencia de 8^0
+
+    // Recorremos la cadena octal de derecha a izquierda
+    for (int i = octal.length() - 1; i >= 0; i--) {
+        char digit = octal.charAt(i); // Obtenemos el dígito en la posición actual
+        int digitValue = digit - '0'; // Convertimos el carácter en un valor numérico
+
+        // Multiplicamos el valor del dígito por la potencia de 8 apropiada y lo sumamos al número decimal
+        decimal += digitValue * base;
+
+        // Actualizamos la base multiplicándola por 8 para la siguiente posición
+        base *= 8;
+    }
+        return decimal;
     }
 
     /**
@@ -71,11 +86,26 @@ public class Librerias {
      * @return Dato hexadecimal transformado
      */
     public int convertirHexadecimalaDecimal(String Hexadecimal){
-        return Integer.parseInt(Hexadecimal, 16);
-        /**
-         * En esta funcion usamos el metodo Integer parseint para transformar el string a int
-         * El primer dato debe ser el string que transformaremos
-         * El numero indica la base, en este caso es 16 porque el hexadecimal es de 0 - 9 y de A - F
-         */
+        int decimal = 0, base = 1;
+
+        // Recorremos la cadena hexadecimal de derecha a izquierda
+        for (int i = Hexadecimal.length() - 1; i >= 0; i--) {
+            char digit = Hexadecimal.charAt(i); //Obtenemos el dígito en la posición actual de la cadena.
+
+            // Verificamos si el carácter es una letra (A-F) y lo convertimos a un valor numérico
+            int digitValue;
+            if (Character.isDigit(digit)) {
+                digitValue = digit - '0'; // Si es un dígito (0-9), simplemente restamos el valor ASCII de '0'
+            } else {
+                // Si es una letra (A-F), sumamos 10 para obtener el valor correcto (A=10, B=11, ..., F=15)
+                digitValue = digit - 'A' + 10;
+            }
+            // Multiplicamos el valor del dígito por la potencia de 16 adecuada y lo sumamos al número decimal
+            decimal += digitValue * base;
+            // Actualizamos la base multiplicándola por 16 para la siguiente posición
+            base *= 16;
+        }
+
+        return decimal;
     }
 }
