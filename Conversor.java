@@ -17,44 +17,31 @@ public class Conversor {
      * que quiere*/
     public static void main(String[] args) {
         Scanner leer = new Scanner(System.in); //es la forma de introducir datos
-        Librerias c = new Librerias(); //Prueba rapida de metodos
-        String formato = "";
-        int opcion=0, decimal = 0;//varible usada para cerrar el ciclo y variable con la que se trabajara
-        while (opcion!=5)
+        Librerias formato = new Librerias(); //Objeto de librerias
+        String numero = "";
+        int opcion1 =0, opcion2 = 0;//varible usada para cerrar el ciclo y variable con la que se trabajara
+        while (opcion1!=5 || opcion2!=5)
         {   
-            System.out.println("Introduce en el formato que quiera: ");
-            formato = leer.nextLine();
-            decimal = c.decidirformato(formato, leer);
+            System.out.println("Escribe el numero que quieres convertir: ");
+            numero = leer.next();
             System.out.println("|--------------------------------------|");
-            System.out.println("|1) Decimal                            |");
+            System.out.println("|1) Binario                            |");
             System.out.println("|2) Octal                              |");
-            System.out.println("|3) Hexadecimal                        |");
-            System.out.println("|4) Binario                            |");
+            System.out.println("|3) Decimal                            |");
+            System.out.println("|4) Hexadecimal                        |");
             System.out.println("|5) Salir                              |");
             System.out.println("|--------------------------------------|");
-            System.out.print("Opcion: ");
-            opcion = leer.nextInt();
-            switch(opcion)
-            {
-                case 1: 
-                    
-                    break;
-                case 2:
-                    
-                   break;
-                case 3:
-                    
-                    break;
-                case 4:
-                    
-                    break;
-                case 5:
-                    System.out.println("Adios");
-                    break;
-                default:
-                 System.out.println("ERROR\nOpcion no valida");
-                    break;
-            }//fin del switch
+            System.out.print("Escoge de que sistema a que sistema quieres convertir ");
+            opcion1 = leer.nextInt();
+            opcion2 = leer.nextInt();
+            if (opcion1 != opcion2) //If para verificar que ambas opciones no sean iguales
+                numero = formato.convertidor(opcion1, opcion2, numero); //Backend
+            if (numero == "") { //Comienzo del ifelse
+                System.out.println("No Te VaLlAs a CanSaR DE EScRiBir >:(");
+                System.out.println("Traduccion: Formato de numero invalido");
+            } else {
+                System.out.println("Resultado: "+numero);
+            } //Fin del ifelse
         }//fin del while
         leer.close();
     }//fin del main
