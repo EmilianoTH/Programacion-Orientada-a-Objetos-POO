@@ -9,48 +9,70 @@
  * Descripcion: este es un apoyo al codigo conversor, que aqui, estan las librerias
  */
 
-import java.util.Scanner;
-
 public class Librerias {
     /* Metodos */
     /** 
-     * @param entrada Dato que mete el usuario, que sera validado
+     * @param entrada Dato que introduce el usuario, que será+ validado
      * @return Retorna el valor decimal
      */
-    public int decidirformato(String entrada, Scanner leer)
-    {
-        int decimal = 0, opcion = 0;//variables de opciones
+    public String convertidor(int opcion1, int opcion2, String numero){
+        int decimal = 0;
+        String kk = "KK was not found"; //Variabler de Midory (kk)
+        switch (opcion1) {
+            case 1:
+            if (numero.matches("^[01]+")) //entrada.matches ("^[01]+") marca el rango esperado que se busca en la funcion
+                decimal = convertirBinarioaDecimal(numero);
+                break;
 
-        System.out.println("Presione 1 si introdujo un dato decimal\nSi no es asi, presione cualquier tecla");
-        opcion = leer.nextInt();//se encarga de leer la opcion
-        if (opcion == 1) {
-            //Se asegura que sea decimal
-            decimal = Integer.parseInt(entrada, 10);
-        }//si no
-        else {
-            //Identificar el formato de la entrada con una serie de if
-            if (entrada.matches("^[01]+")) { //entrada.matches ("^[01]+") marca el rango esperado que se busca en la funcion
-            // Si contiene 0 y 1 solamente es binario
-            decimal = convertirBinarioaDecimal(entrada);
-            } else if (entrada.matches("^[0-7]+")) {
-            // Si contiene solo dígitos del 0 al 7 es octal
-            decimal = convertirOctalaDecimal(entrada);
-            } else if (entrada.matches("^[0-9A-Fa-f]+")) {
-            // Si contiene dígitos y letras de A a F es hexadecimal
-            decimal = convertirHexadecimalaDecimal(entrada);
-            } else {
-            // Si no cumple ninguno de los patrones anteriores, se asume que es decimal
-            decimal = Integer.parseInt(entrada, 10);
-            }//fin de la funcion de if-else
-        }//fin del primer else
-        return decimal;
-    }//fin de la clase decidir formato
+            case 2:
+            if (numero.matches("^[0-7]+"))
+                decimal = convertirOctalaDecimal(numero);
+                break;
+
+            case 3:
+            if (numero.matches("^[0-9]+"))
+                decimal = Integer.parseInt(numero, 10);
+                break;
+
+            case 4:
+            if (numero.matches("^[0-9A-Fa-f]+"))
+                decimal = convertirHexadecimalaDecimal(numero);
+                break;
+        
+            default:
+            System.out.println("La opcion que has escodigo no existe\nO el formato del numero no coincide");
+                break;
+        }//Fin del Switch
+
+        switch (opcion2) {
+            case 1:
+                kk = decimalABinario(decimal);
+                break;
+            
+            case 2:
+                kk = decimalAOctal(decimal);
+                break;
+
+            case 3:
+                kk = Integer.toString(decimal);
+                break;
+
+            case 4:
+                kk = decimalAHexadecimal(decimal);
+                break;
+
+            default:
+                System.out.println("Esa opcion no existe");
+                break;
+        }//Fin del Switch 2
+        return kk;
+    }//fin de la clase convertidor
 
     /**
      * @param binario Dato que ya sabemos que es binario, el cual lo transformaremos en decimal
      * @return Dato binario transformado
      */
-    public int convertirBinarioaDecimal(String binario){
+    private int convertirBinarioaDecimal(String binario){
         int decimal = 0; //Variable que retornaremos
         int longitud = binario.length(); //Sacamos la longitud con el tamaño del string
         for (int i = 0; i < longitud; i++) { //Usamos un for para recorrer el string, al cabo un string es un arreglo de caracteres
@@ -65,7 +87,7 @@ public class Librerias {
      * @param octal Dato que ya sabemos que es octal, el cual lo transformaremos en decimal
      * @return Dato octal transformado
      */
-    public int convertirOctalaDecimal(String octal){
+    private int convertirOctalaDecimal(String octal){
     int decimal = 0; // Inicializamos el número decimal en cero
     int base = 1; // Inicializamos la base en 1, que es la potencia de 8^0
     // Recorremos la cadena octal de derecha a izquierda
@@ -86,7 +108,7 @@ public class Librerias {
      * @param Hexadecimal Dato que ya sabemos que es hexadecimal, el cual lo transformaremos en decimal
      * @return Dato hexadecimal transformado
      */
-    public int convertirHexadecimalaDecimal(String Hexadecimal){
+    private int convertirHexadecimalaDecimal(String Hexadecimal){
         int decimal = 0, base = 1;
 
         // Recorremos la cadena hexadecimal de derecha a izquierda
@@ -113,7 +135,7 @@ public class Librerias {
     /*
      * tranforma de valor decimal a dato binario y retorna el valor a binario
      */
-    public String decimalABinario(int decimal){
+    private String decimalABinario(int decimal){
         String binario="";//variable de modo string para que el parametro sea mayor 
         //mientras el valor binario introducido sea mayor a 0, debera de dividirlo entre dos hasta que 
         //el valor termine en 0 o mas cercano
@@ -127,7 +149,7 @@ public class Librerias {
     /*
      * transforma de valor decimal a valor octal y retorna el valor a binario
      */
-    public String decimalAOctal(int decimal){
+    private String decimalAOctal(int decimal){
         int residuo;
         String octal = "";
         char[] caracteresOctales = {'0','1','2','3','4','5','6','7'};//especificacion de que debe regresar
@@ -145,7 +167,7 @@ public class Librerias {
     /*
      * trasforma de valor decimal a valor hexadecimal y retorna el valor a binario
      */
-    public String decimalAHexadecimal(int decimal){
+    private String decimalAHexadecimal(int decimal){
         int residuo;
         String hexadecimal = "";
         char[]caracteresHexadecimal = {'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
