@@ -19,7 +19,7 @@ public class Conversor {
         Scanner leer = new Scanner(System.in); //es la forma de introducir datos
         Librerias c = new Librerias(); //Prueba rapida de metodos
         String formato = "";
-        int opcion=0, decimal = 0;//varible usada para cerrar el ciclo
+        int opcion=0, decimal = 0;//varible usada para cerrar el ciclo y variable con la que se trabajara
         while (opcion!=5)
         {   
             System.out.println("Introduce en el formato que quiera: ");
@@ -32,7 +32,7 @@ public class Conversor {
             System.out.println("|4) Binario                            |");
             System.out.println("|5) Salir                              |");
             System.out.println("|--------------------------------------|");
-            System.out.print("Opcion: "+decimal);
+            System.out.print("Opcion: ");
             opcion = leer.nextInt();
             switch(opcion)
             {
