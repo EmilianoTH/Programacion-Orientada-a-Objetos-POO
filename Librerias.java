@@ -17,7 +17,7 @@ public class Librerias {
      */
     public String convertidor(int opcion1, int opcion2, String numero){
         int decimal = 0;
-        String kk = "KK was not found"; //Variabler de Midory (kk)
+        String kk = ""; //Variabler de Midory (kk)
         switch (opcion1) {
             case 1:
             if (numero.matches("^[01]+")) //entrada.matches ("^[01]+") marca el rango esperado que se busca en la funcion
