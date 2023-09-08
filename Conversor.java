@@ -31,8 +31,9 @@ public class Conversor {
             System.out.println("|4) Hexadecimal                        |");
             System.out.println("|5) Salir                              |");
             System.out.println("|--------------------------------------|");
-            System.out.print("Escoge de que sistema a que sistema quieres convertir ");
+            System.out.print("Escoge el formato del numero que has escribido: ");
             opcion1 = leer.nextInt();
+            System.out.println("Escoge el formato en el que quieres convertir el numero que has escribido: ");
             opcion2 = leer.nextInt();
             if (opcion1 != opcion2) //If para verificar que ambas opciones no sean iguales
                 numero = formato.convertidor(opcion1, opcion2, numero); //Backend
