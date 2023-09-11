@@ -12,12 +12,13 @@
 public class Librerias {
     /* Metodos */
     /** 
-     * @param entrada Dato que introduce el usuario, que será+ validado
+     * @param entrada Dato que introduce el usuario, que será validado
      * @return Retorna el valor decimal
      */
     public String convertidor(int opcion1, int opcion2, String numero){
         int decimal = 0;
         String kk = ""; //Variabler de Midory (kk)
+        //Valida el formato del numero que entra para transformarlo en decimal con ifs en cada caso
         switch (opcion1) {
             case 1:
             if (numero.matches("^[01]+")) //entrada.matches ("^[01]+") marca el rango esperado que se busca en la funcion
@@ -43,7 +44,8 @@ public class Librerias {
             System.out.println("La opcion que has escodigo no existe\nO el formato del numero no coincide");
                 break;
         }//Fin del Switch
-
+        
+    //Transforma el numero decimal que es el formato general, al tipo de dato que quiere el usuario
         switch (opcion2) {
             case 1:
                 kk = decimalABinario(decimal);
