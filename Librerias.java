@@ -41,7 +41,6 @@ public class Librerias {
                 break;
         
             default:
-            System.out.println("La opcion que has escodigo no existe\nO el formato del numero no coincide");
                 break;
         }//Fin del Switch
         
@@ -64,7 +63,6 @@ public class Librerias {
                 break;
 
             default:
-                System.out.println("Esa opcion no existe");
                 break;
         }//Fin del Switch 2
         if (opcion1 > 4 && opcion2 > 4) {
