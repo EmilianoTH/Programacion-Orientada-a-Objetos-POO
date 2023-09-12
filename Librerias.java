@@ -65,7 +65,7 @@ public class Librerias {
             default:
                 break;
         }//Fin del Switch 2
-        if (opcion1 > 4 && opcion2 > 4) {
+        if (opcion1 > 4 && opcion2 > 4) { //If que valida las opciones solicitadas
             kk = "";
         }
 
