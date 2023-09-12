@@ -67,6 +67,10 @@ public class Librerias {
                 System.out.println("Esa opcion no existe");
                 break;
         }//Fin del Switch 2
+        if (opcion1 > 4 && opcion2 > 4) {
+            kk = "";
+        }
+
         return kk;
     }//fin de la clase convertidor
 
