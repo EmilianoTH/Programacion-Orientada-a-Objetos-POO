@@ -53,7 +53,7 @@ public class LibreriasdeUnidades {
 
         return numero;
     }
-
+/* Necesita arreglos */
     public static boolean validarDouble(double valor) {
         try {
             // Intentamos convertir el valor a double
