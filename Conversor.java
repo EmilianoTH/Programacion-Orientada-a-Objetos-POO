@@ -38,7 +38,7 @@ public class Conversor {
             if (opcion1 != opcion2) //If para verificar que ambas opciones no sean iguales
                 numero = formato.convertidor(opcion1, opcion2, numero); //Backend
             if (numero == "") { //Comienzo del ifelse, le avisa al usuario que no escribio nada
-                System.out.println("No Te VaLlAs a CanSaR DE EScRiBir >:(");
+                System.out.println("\n\nNo Te VaLlAs a CanSaR DE EScRiBir >:(");
                 System.out.println("Traduccion: Formato de numero invalido");
             } else {
                 System.out.println("Resultado: "+numero);
