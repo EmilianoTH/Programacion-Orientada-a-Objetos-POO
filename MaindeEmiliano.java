@@ -30,7 +30,8 @@ public class MaindeEmiliano {
             System.out.print("Elige el sistema de conversion que quieras: ");
             try {
                 menu = leer.nextInt();
-            } catch (NumberFormatException e) {
+            } catch (Exception e) {
+                leer.nextLine();
                 System.out.println("\nError\nElige una opcion correcta");
             }
         } //Fin del while
