@@ -19,7 +19,6 @@ public class MaindeEmiliano {
     public static void main(String[] args) { //Comienzo del main
         Scanner leer = new Scanner(System.in); //es la forma de introducir datos
         int menu = 0, submenu1 = 0, submenu2 = 0; //Variables a utilizar
-        String opcion = "";
         while (menu != 4) {
             System.out.println("|--------------------------------------|");
             System.out.println("|1) Sistemas                           |");
