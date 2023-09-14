@@ -4,7 +4,7 @@ public class LibreriasdeUnidades {
      * 
      * @param numero Numero con el cual se trabaja y se debe mostrar al usuaro
      */
-    public static void mostrar(double numero, int opcion1, int opcion2){
+    public void mostrar(double numero, int opcion1, int opcion2){
         double mostrar = Unidadgeneral(opcion1, opcion2, numero);
         System.out.print("Tu numero es: "+mostrar);
     }
