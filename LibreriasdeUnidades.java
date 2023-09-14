@@ -22,7 +22,6 @@ public class LibreriasdeUnidades {
             case 3:
                 numero = numero*(0.9144); //Yardas a metros
                 break;
-            //case 4 seran los metros, y como igualamos todo a metro, pues no es necesario ponerlo
             case 5:
                 numero = numero*(1000); //KM a metro
                 break;
@@ -33,9 +32,13 @@ public class LibreriasdeUnidades {
             default:
                 break;
         }
-        numero = Conversionadestino(opcion2, numero);
-
-        return numero;
+        if (opcion1 != 4 && opcion2 == 4) {
+            return numero;
+        }
+        else{
+            numero = Conversionadestino(opcion2, numero);
+            return numero;
+        }
     }
 
     private static double Conversionadestino(int opcion2, double numero){
@@ -51,7 +54,6 @@ public class LibreriasdeUnidades {
             case 3:
                 numero = numero*(1.09361); //Metros a yardas
                 break;
-            //Case 4 seran los metros, ya explique el porque en el primer switch
 
             case 5:
                 numero = numero*(0.001);
