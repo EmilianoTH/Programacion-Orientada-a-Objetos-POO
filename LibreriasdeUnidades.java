@@ -1,6 +1,15 @@
 public class LibreriasdeUnidades { 
 
-    public double Decualunidadacual(int opcion1, int opcion2, double numero){
+    /**
+     * 
+     * @param numero Numero con el cual se trabaja y se debe mostrar al usuaro
+     */
+    public static void mostrar(double numero){
+        double mostrar = Decualunidadacual(1, 3, numero);
+        System.out.print("Tu numero es: "+mostrar);
+    }
+
+    private static double Decualunidadacual(int opcion1, int opcion2, double numero){
         switch (opcion1) {
             case 1:
                 numero = numero*(0.01); //Centimetro a metro
@@ -52,18 +61,5 @@ public class LibreriasdeUnidades {
         }
 
         return numero;
-    }
-/* Necesita arreglos */
-    public static boolean validarDouble(double valor) {
-        try {
-            // Intentamos convertir el valor a double
-            double resultado = Double.parseDouble(Double.toString(valor));
-    
-            // Si no se produce ninguna excepción, el valor es válido
-            return true;
-        } catch (NumberFormatException e) {
-            // Si se produce una excepción, el valor no es válido
-            return false;
-        }
     }
 }
