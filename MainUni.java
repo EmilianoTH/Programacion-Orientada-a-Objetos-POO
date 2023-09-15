@@ -41,7 +41,7 @@ public class MainUni {
                 System.out.println("Escoge el formato en el que quieres convertir el numero que has escribido: ");
                 opcion2 = leer.nextInt();
             } catch (Exception e) {
-                System.out.println("\nSeleccione correctamente\n");
+                System.out.println("\nSeleccione incorrectamente\n");
             }//fin del try-catch de validacion 
             //if para verificar que ambas opciones no sean iguales
             if (opcion1 != opcion2) 
