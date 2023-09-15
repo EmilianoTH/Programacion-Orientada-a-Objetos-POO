@@ -6,7 +6,7 @@
  * Centro Universitario de los Altos | Universidad de Guadalajara
  * Ingenieria en computacion
  * Profesor: Sergio Franco Casillas
- * Descripcion: convierte el ingreso del valor al sistema que tu hayas elegido
+ * Descripcion: convierte el ingreso del valor a la unidad  que tu hayas elegido
  */
 
 import java.util.Scanner;
@@ -34,14 +34,19 @@ public class MainUni {
             System.out.println("|6) Millas                             |");
             System.out.println("|7) Salir                              |");
             System.out.println("|______________________________________|");
-            System.out.print("Escoge el formato del numero que has escribido: ");
-            opcion1 = leer.nextInt();
-            System.out.println("Escoge el formato en el que quieres convertir el numero que has escribido: ");
-            opcion2 = leer.nextInt();
+            //se encarga de validar si se esta ingresando el valor del rango establecido correctamente
+            try {
+                System.out.println("Escoge el formato del numero que has escribido: ");
+                opcion1 = leer.nextInt();
+                System.out.println("Escoge el formato en el que quieres convertir el numero que has escribido: ");
+                opcion2 = leer.nextInt();
+            } catch (Exception e) {
+                System.out.println("\nSeleccione correctamente\n");
+            }//fin del try-catch de validacion 
             //if para verificar que ambas opciones no sean iguales
             if (opcion1 != opcion2) 
                 formato.mostrar(numero, opcion1, opcion2);//Backend
-            if (numero == 0) { //Comienzo del ifelse;
+            if (numero == 0) { //Comienzo del ifelse
                 System.out.println("Formato de numero invalido");
             } //fin del if
             else { } //Fin del ifelse
