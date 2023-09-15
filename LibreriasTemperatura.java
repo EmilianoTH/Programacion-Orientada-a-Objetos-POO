@@ -1,9 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
-
-package com.mycompany.libreriastemperatura;
-
 /**ANGEL EDUARDO MUÑOZ PEREZ
  *Programacion orientada a objetos_ CUALTOS
  * -----TRAMSFORMADOR DE UNIDADES DE TEMPERATURA----
@@ -13,7 +7,7 @@ package com.mycompany.libreriastemperatura;
 public class LibreriasTemperatura {
 
     public static void escribir(int opc1, int opc2, float numero){
-        float mostrar = Tramsformador(int opc1, int opc2, float numero);
+        float mostrar = Transformador(opc1, opc2, numero); //Al llamar una funcion, no necesitar poner que tipo de dato es Muñoz
         System.out.println("el resultado es: "+mostrar);
     }//FIN DE FUNCION ESCRIBIR
     
@@ -25,10 +19,11 @@ public class LibreriasTemperatura {
                 numero += 273.15; 
                 break;
             case 2://de fahrenheit a celsius
-                numero = (numero-32) * 1.8;
+                numero = (numero-32f) * 1.8f; //En java, si se trabaja con Flotantes, debe usar una f despues de los numeros que haran una operacion
+                //Con tu flotante
                 break;
             case 3://DE CELSIUS A CELSIUS XD
-                numero = numero;
+                numero = numero; //Esto es redundancia, mejor borra este caso y usa un if
                 break;
             default:
                 System.out.println("opcion no valida, vuelvelo a intentar");
@@ -40,10 +35,10 @@ public class LibreriasTemperatura {
                 numero -= 273.15; 
                 break;
             case 2://de celsius a fahrenheit
-                numero = (numero*1.8) + 32;
+                numero = (numero*1.8f) + 32f;
                 break;
             case 3://DE CELSIUS A CELSIUS XD
-                numero = numero;
+                numero = numero; //Esto es redundancia, mejor borra este caso y usa un if
                 break;
             default:
                 System.out.println("opcion no valida, vuelvelo a intentar");
