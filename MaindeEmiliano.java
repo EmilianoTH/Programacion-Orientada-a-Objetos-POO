@@ -19,6 +19,8 @@ public class MaindeEmiliano {
     public static void main(String[] args) { //Comienzo del main
         Scanner leer = new Scanner(System.in); //es la forma de introducir datos
         Librerias formato = new Librerias(); //Objeto de librerias
+        LibreriasdeUnidades format  = new LibreriasdeUnidades();
+        LibreriasdeTemperaturas forma = new LibreriasdeTemperaturas();
         int menu = 0; //Variables a utilizar
         double unidad = 0; //Variable que utilizara las unidades
         float temperatura = 0; //Variable que utilizara la temperatura
@@ -92,7 +94,7 @@ public class MaindeEmiliano {
 
                     else{ //Comienzo del else
                         if (opcion1 != opcion2 && unidad > 0) { //If para validar
-                            LibreriasdeUnidades.mostrar(unidad, opcion1, opcion2);
+                            format.mostrar(unidad, opcion1, opcion2);
                         }
                         else{
                             System.out.println("Error\nNo eliga las mismas opciones\nTampoco escriba numeros negativos");
@@ -101,11 +103,44 @@ public class MaindeEmiliano {
                     break;
 
                 case 3:
+                    System.out.println("Escribe el numero con el que quieres trabajar:");
+                    try { //Inicio del try
+                        temperatura = leer.nextFloat();
+                    } catch (Exception e) {
+                        leer.nextLine();
+                        System.out.println("\nERROR\nFormato numerico invalido");
+                    } //Fin del try catch
+
+                    LibreriapersonaldeEmiliano.MainTemperaturas();
+
+                    try { //Inicio del try
+                        System.out.println("Escoge el formato en el que escribiste el numero: ");
+                        opcion1 = leer.nextInt();
+                        System.out.println("Escoge el formato en el que quieres convertir el numero que has escribido: ");
+                        opcion2 = leer.nextInt();
+                    } catch (Exception e) { //Inicio del catch
+                        System.out.println("\nError\nElige una opcion correcta");
+                    } //Fin del catch
+
+                    if (opcion1 == 4 || opcion2 == 4) { //Comienzo del if
+                        System.out.println("Entendido");
+                    } // Fin el if
+
+                    else{ //Comienzo del else
+                        if (opcion1 != opcion2) { //If para validar
+                            forma.escribir(opcion1, opcion2, temperatura);
+                        }
+                        else{
+                            System.out.println("Error\nNo eliga las mismas opciones\nTampoco escriba numeros negativos");
+                        }
+                    } //Fin del else
 
                     break;
+
                 default:
+                System.out.println("Entendido\nVuelve pronto");
                     break;
-            }
+            } //Fin del switch
         } //Fin del while
     leer.close(); //Cerrar el scaner
     } //Fin del main
