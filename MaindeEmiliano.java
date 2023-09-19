@@ -137,8 +137,12 @@ public class MaindeEmiliano {
 
                     break;
 
+                case 4:
+                    System.out.println("Entendido, vuelva pronto");
+                    break;
+
                 default:
-                System.out.println("Entendido\nVuelve pronto");
+                System.out.println("ERROR\nEsa opcion no existe");
                     break;
             } //Fin del switch
         } //Fin del while
