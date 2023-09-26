@@ -21,13 +21,12 @@ public class MaindeEmiliano {
         Librerias formato = new Librerias(); //Objeto de librerias
         LibreriasdeUnidades format  = new LibreriasdeUnidades();
         LibreriasdeTemperaturas forma = new LibreriasdeTemperaturas();
-        int menu = 0; //Variables a utilizar
+        int menu = 0, opcion1 = 0, opcion2 = 0; //Variables a utilizar
         double unidad = 0; //Variable que utilizara las unidades
         float temperatura = 0; //Variable que utilizara la temperatura
         String sistemas = ""; //Variable que utilizara los sistemas
 
         while (menu != 4) {
-        int  opcion1 = 0, opcion2 = 0;
 
             System.out.println("|--------------------------------------|");
             System.out.println("|1) Sistemas                           |");
@@ -44,20 +43,36 @@ public class MaindeEmiliano {
             }
             switch (menu) {
                 case 1:
-                    System.out.println("Escribe el numero que quieres convertir: "); //Numero a convertir
-                    sistemas = leer.next();
+                while (opcion1 != 5 || opcion2 != 5) {
+                    
+                opcion1 = 0;
+                opcion2 = 0;
+
                     LibreriapersonaldeEmiliano.MaindeSistemas();
-                    try {
-                        System.out.println("Escoge el formato en el que escribiste el numero: ");
+    
+                    try { //Inicio del trycatch
+                        System.out.println("Escoge el formato en el que escribiras el numero: ");
                         opcion1 = leer.nextInt();
-                        System.out.println("Escoge el formato en el que quieres convertir el numero que has escribido: ");
-                        opcion2 = leer.nextInt();
                     } catch (Exception e) {
                         System.out.println("\nError\nElige una opcion correcta");
-                    }
+                    }// Fin del try catch
                     if (opcion1 == 5 || opcion2 == 5) //if
                         System.out.println("Entendido");
-                    else{ //Else
+
+                    try { //Inicio del trycatch
+                        System.out.println("Escoge el formato en el que quieres convertir el numero que escribiras: ");
+                        opcion2 = leer.nextInt();
+                    } catch (Exception e) {
+                        System.out.println("Error\nElige una opcion correcta");
+                    } //Fin del trycatch
+
+                    if (opcion1 == 5 || opcion2 == 5) //if
+                        System.out.println("Entendido");
+
+                    System.out.println("Escribe el numero que quieres convertir: "); //Numero a convertir
+                    sistemas = leer.next();
+
+                    if (opcion1 != 5 && opcion2 != 5){ //If
                         if (opcion1 != opcion2) //If para verificar que ambas opciones no sean iguales
                         sistemas = formato.convertidor(opcion1, opcion2, sistemas); //Backend
                         if (sistemas == "") { //Comienzo del ifelse, le avisa al usuario que no escribio nada
@@ -66,9 +81,36 @@ public class MaindeEmiliano {
                         } else {
                         System.out.println("Resultado: "+sistemas);
                         } //Fin del ifelse
-                    }//Fin del else
+                    }//Fin del if
                     break;
+
+                } // Fin del while del caso 3
+
                 case 2:
+                while (opcion1 != 7 || opcion2 != 7) {
+                    
+                opcion1 = 0;
+                opcion2 = 0;
+
+                    LibreriapersonaldeEmiliano.MaindeUnidades();
+
+                    try { //Inicio del try
+                        System.out.println("Escoge el formato en el que escribiras el numero: ");
+                        opcion1 = leer.nextInt();
+                        if (opcion1 == 7 || opcion2 == 7) { //Comienzo del if
+                        System.out.println("Entendido");
+                        break;
+                        } // Fin el if
+                        System.out.println("Escoge el formato en el que quieres convertir el numero que escribiras: ");
+                        opcion2 = leer.nextInt();
+                    } catch (Exception e) { //Inicio del catch
+                        System.out.println("\nError\nElige una opcion correcta");
+                    } //Fin del catch
+
+                    if (opcion1 == 7 || opcion2 == 7) { //Comienzo del if de validar que no se quiera salir
+                        System.out.println("Entendido");
+                    } // Fin el if
+
                     System.out.println("Escribe el numero con el que quieres trabajar: ");
                     try { //Inicio del try
                         unidad = leer.nextDouble();
@@ -77,46 +119,33 @@ public class MaindeEmiliano {
                         System.out.println("\nERROR\nFormato numerico invalido");
                     } //fin del catch
 
-                    LibreriapersonaldeEmiliano.MaindeUnidades();
-
-                    try { //Inicio del try
-                        System.out.println("Escoge el formato en el que escribiste el numero: ");
-                        opcion1 = leer.nextInt();
-                        System.out.println("Escoge el formato en el que quieres convertir el numero que has escribido: ");
-                        opcion2 = leer.nextInt();
-                    } catch (Exception e) { //Inicio del catch
-                        System.out.println("\nError\nElige una opcion correcta");
-                    } //Fin del catch
-
-                    if (opcion1 == 7 || opcion2 == 7) { //Comienzo del if
-                        System.out.println("Entendido");
-                    } // Fin el if
-
-                    else{ //Comienzo del else
+                    if (opcion1 != 7 && opcion2 != 7){ //Comienzo del if
                         if (opcion1 != opcion2 && unidad > 0) { //If para validar
                             format.mostrar(unidad, opcion1, opcion2);
                         }
                         else{
                             System.out.println("Error\nNo eliga las mismas opciones\nTampoco escriba numeros negativos");
                         }
-                    } //Fin del else
+                    } //Fin del if
                     break;
 
+                } //Fin del while del caso 2
+
                 case 3:
-                    System.out.println("Escribe el numero con el que quieres trabajar:");
-                    try { //Inicio del try
-                        temperatura = leer.nextFloat();
-                    } catch (Exception e) {
-                        leer.nextLine();
-                        System.out.println("\nERROR\nFormato numerico invalido");
-                    } //Fin del try catch
+                while (opcion1 != 4 || opcion2 != 4) {
+                    
+                opcion1 = 0;
+                opcion2 = 0;
 
                     LibreriapersonaldeEmiliano.MainTemperaturas();
 
                     try { //Inicio del try
-                        System.out.println("Escoge el formato en el que escribiste el numero: ");
+                        System.out.println("Escoge el formato en el que escribiras el numero: ");
                         opcion1 = leer.nextInt();
-                        System.out.println("Escoge el formato en el que quieres convertir el numero que has escribido: ");
+                        if (opcion1 == 4 || opcion2 == 4) { //Comienzo del if
+                        System.out.println("Entendido");
+                        } // Fin el if
+                        System.out.println("Escoge el formato en el que quieres convertir el numero que escribiras: ");
                         opcion2 = leer.nextInt();
                     } catch (Exception e) { //Inicio del catch
                         System.out.println("\nError\nElige una opcion correcta");
@@ -126,16 +155,26 @@ public class MaindeEmiliano {
                         System.out.println("Entendido");
                     } // Fin el if
 
-                    else{ //Comienzo del else
+                    System.out.println("Escribe el numero con el que quieres trabajar:");
+                    try { //Inicio del try
+                        temperatura = leer.nextFloat();
+                    } catch (Exception e) {
+                        leer.nextLine();
+                        System.out.println("\nERROR\nFormato numerico invalido");
+                    } //Fin del try catch
+
+                    if (opcion1 != 4 && opcion2 != 4){ //Comienzo del if
                         if (opcion1 != opcion2) { //If para validar
                             forma.escribir(opcion1, opcion2, temperatura);
                         }
                         else{
-                            System.out.println("Error\nNo eliga las mismas opciones\nTampoco escriba numeros negativos");
+                            System.out.println("Error\nNo eliga las mismas opciones");
                         }
-                    } //Fin del else
+                    } //Fin del if
 
                     break;
+                
+                }// Fin del while del caso 3
 
                 case 4:
                     System.out.println("Entendido, vuelva pronto");
