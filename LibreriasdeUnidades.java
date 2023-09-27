@@ -2,15 +2,24 @@ public class LibreriasdeUnidades {
 
     /**
      * 
-     * @param numero Numero con el cual se trabaja y se debe mostrar al usuaro
+     * @param numero Numero double que sera transformado
+     * @param opcion1 Tipo de unidad en la que se metio el numero
+     * @param opcion2 Tipo de unidad a la que quiere ser transformado
      */
     public void mostrar(double numero, int opcion1, int opcion2){
         double mostrar = Unidadgeneral(opcion1, opcion2, numero);
         System.out.print("Tu numero es: "+mostrar);
     }
 
+    /**
+     * 
+     * @param numero Numero double que sera transformado
+     * @param opcion1 Tipo de unidad en la que se metio el numero
+     * @param opcion2 Tipo de unidad a la que quiere ser transformado
+     * @return Numero ya transformado
+     */
     private static double Unidadgeneral(int opcion1, int opcion2, double numero){
-        switch (opcion1) {
+        switch (opcion1) { //Switch 1
             case 1:
                 numero = numero*(0.01); //Centimetro a metro
                 break;
@@ -31,16 +40,21 @@ public class LibreriasdeUnidades {
                 break;
             default:
                 break;
-        }
-        if (opcion1 != 4 && opcion2 == 4) {
+        } //Fin del switch 1
+        if (opcion1 != 4 && opcion2 == 4) { //Por si quiere transformar a metros, es nuestra variable general, no es necesaria pasarla
             return numero;
         }
-        else{
+        else{ //Llamamos a otra funcion
             numero = Conversionadestino(opcion2, numero);
             return numero;
         }
     }
-
+    /**
+     * 
+     * @param opcion2 Tipo de unidad que se transformara
+     * @param numero numero ya transformado a la medida general que es metros
+     * @return Numero ya transformado en el resultado
+     */
     private static double Conversionadestino(int opcion2, double numero){
          switch (opcion2) {
             case 1:
