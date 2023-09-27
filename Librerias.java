@@ -11,9 +11,12 @@
 
 public class Librerias {
     /* Metodos */
-    /** 
-     * @param entrada Dato que introduce el usuario, que será validado
-     * @return Retorna el valor decimal
+    /**
+     * 
+     * @param opcion1 Numero que sera usado como referencia para saber de que sistema sera el numero
+     * @param opcion2 Numero que sera usado como referencia para saber a que sistema sera transformado el numero
+     * @param numero Se introduce el numero y se valida con expresiones regulares
+     * @return Se retorna el numero para mostrarse en el main
      */
     public String convertidor(int opcion1, int opcion2, String numero){
         int decimal = 0;
