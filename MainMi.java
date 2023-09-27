@@ -1,15 +1,15 @@
 /* Emiliano De La Torre Hernandez
  * Mariana Midory Iniguez Rodriguez
  * Angel Eduardo Munoz Perez 
- * 12-09-2023
+ * 26-09-2023
  * Main Midory
  * Centro Universitario de los Altos | Universidad de Guadalajara
  * Ingenieria en computacion
  * Profesor: Sergio Franco Casillas
- * Descripcion: Main del programa de unidades
+ * Descripcion: Main del programa de unidades (modificado)
  */
 
- import java.util.Scanner;
+import java.util.Scanner;
  /* Comienza el codigo con la clase principal
   */
 public class MainMi {
@@ -46,8 +46,9 @@ public class MainMi {
             //este switch al poner la opcion, se dirige a lo solicita para dar otro mini switch dependiendo del caso
             switch (opcion) {
                 case 1:
-                    System.out.println("Escribe el numero que quieres convertir: "); 
-                    sistema = leer.next();//Numero a convertir
+                    opcion1 = 0;
+                    opcion2 = 0;
+                    while(opcion1 !=5 && opcion2 !=5){
                     System.out.println("________________________________________");
                     System.out.println("|1) Binario                            |");
                     System.out.println("|2) Octal                              |");
@@ -57,30 +58,40 @@ public class MainMi {
                     System.out.println("|______________________________________|");
                     //se encarga de validar si se esta ingresando el valor del rango establecido correctamente
                     try {
-                        System.out.println("Escoge el formato en el que escribiste el numero: ");
+                        System.out.println("Escribe el formato que se escribira el numero: ");
                         opcion1 = leer.nextInt();
-                        System.out.println("Escoge el formato en el que quieres convertir el numero que has escribido: ");
-                        opcion2 = leer.nextInt();
+                        //se encarga de validar que la opcion sea diferente de salir
                     } catch (Exception e) {
+                        leer.nextLine();
                         System.out.println("\nSeleccione correctamente\n");
                     }//fin del try-catch de validacion 
-                    //if para verificar que ambas opciones no sean iguales
-                    if (opcion1 == 5 || opcion2 == 5) {
-                        System.out.println("Regresara al menu");
-                    }//fin del if
-                    else {
-                         if (opcion1 != opcion2) 
-                        sistema = formato.convertidor(opcion1, opcion2, sistema); //Backend
-                    if (sistema == "") { //Comienzo del ifelse, le avisa al usuario que no escribio nada
-                        System.out.println("Formato de numero invalido");
-                    } else {
-                        System.out.println("Resultado: "+sistema);
-                    } //Fin del ifelse
-                    }//fin del if-else
+                    if (opcion1 !=5) {
+                        try {
+                            System.out.println("Escoge el formato en el que quieres convertir el numero: ");
+                            opcion2 = leer.nextInt();
+                        } catch (Exception e) {
+                            leer.nextLine();
+                            System.out.println("\nSeleccione correctamente\n");
+                        }//fin del try-catch de validacion
+                        if (opcion2 !=5) {
+                            //if para verificar que ambas opciones no sean iguales
+                            if (opcion1 != opcion2){
+                            System.out.println("Escribe el numero que quieres convertir: "); 
+                            sistema = leer.next();//Numero a convertir
+                            sistema = formato.convertidor(opcion1, opcion2, sistema); //Backend
+                            }if (sistema == "") { //Comienzo del ifelse, le avisa al usuario que no escribio nada
+                            System.out.println("Formato de numero invalido");
+                            } else {
+                            System.out.println("Resultado: "+sistema);
+                        } //Fin del ifelse
+                        }//fin del segundo if
+                    }//fin del if   
+                }//fin del while
                     break;
                 case 2: 
-                    System.out.println("Escribe el numero que quieres convertir: ");
-                    unidad = leer.nextDouble();//Numero a convertir
+                    opcion1 = 0;
+                    opcion2 = 0;
+                    while (opcion1 !=7 && opcion2 !=7){
                     System.out.println("________________________________________");
                     System.out.println("|1) Centimetros                        |");
                     System.out.println("|2) Pulgadas                           |");
@@ -92,27 +103,40 @@ public class MainMi {
                     System.out.println("|______________________________________|");
                     //se encarga de validar si se esta ingresando el valor del rango establecido correctamente
                     try {
-                        System.out.println("Escoge el formato en el que escribiste el numero: ");
+                        System.out.println("Escribe el formato que se escribira el numero:  ");
                         opcion1 = leer.nextInt();
-                        System.out.println("Escoge el formato en el que quieres convertir el numero escrito: ");
-                        opcion2 = leer.nextInt();
                     } catch (Exception e) {
+                        leer.nextLine();
                         System.out.println("\nSeleccione correctamente\n");
                     }//fin del try-catch de validacion 
-                    //if para verificar que ambas opciones no sean iguales
-                    if (opcion1 == 7 || opcion2 == 7) {
-                        System.out.println("Regresara al menu");
+                    if (opcion1 !=7) {
+                        try {
+                            System.out.println("Escoge el formato en el que quieres convertir el numero: ");
+                            opcion2 = leer.nextInt();
+                        } catch (Exception e) {
+                            leer.nextLine();
+                            System.out.println("\nSeleccione correctamente\n");
+                        }//fin del try catch
+                        if (opcion2 !=7) {
+                            try {
+                                System.out.println("Escribe el numero que quieres convertir: ");
+                                unidad = leer.nextDouble();//Numero a convertir
+                            } catch (Exception e) {
+                                leer.nextLine();
+                                System.out.println("\nSeleccione correctamente\n");
+                            }//fin de segundo try-catch
+                            //este if se encarga de validar 
+                            if (opcion1 != opcion2 && unidad >0) {
+                                formato1.mostrar(unidad, opcion1, opcion2);
+                            }//fin del if
+                        }//fin del if
                     }//fin del if
-                    else {
-                        //este if se encarga de validar 
-                        if (opcion1 != opcion2 && unidad >0) {
-                            formato1.mostrar(unidad, opcion1, opcion2);
-                        }//fin del segundo if
-                    }//fin del if-else
+                }//fin del while
                     break;
                 case 3:
-                    System.out.println("Escribe el grado que quieres convertir: ");
-                    temperatura = leer.nextFloat();
+                    opcion1 = 0;
+                    opcion2 = 0;
+                    while(opcion1 !=4 && opcion2 !=4){
                     System.out.println("___________________________________");
                     System.out.println("|1) Kelvin                        |");
                     System.out.println("|2) Fahrenheir                    |");
@@ -121,29 +145,41 @@ public class MainMi {
                     System.out.println("|_________________________________|");
                     //se encarga de validar si se esta ingresando el valor del rango establecido correctamente
                     try {
-                        System.out.println("Escoge el formato del numero que has escribido: ");
+                        System.out.println("Escribe el formato que se escribira el grado:  ");
                         opcion1 = leer.nextInt();
-                        System.out.println("Escoge el formato en el que quieres convertir el numero que has escribido: ");
-                        opcion2 = leer.nextInt();
                     } catch (Exception e) {
+                        leer.nextLine();
                         System.out.println("\nSeleccione correctamente\n");
                     }//fin del try-catch de validacion 
-                    //if para verificar que ambas opciones no sean iguales
-                    if (opcion1 == 4  || opcion2 == 4) {
-                        System.out.println("Regresara al menu");
+                    if (opcion1 !=4) {
+                        try {
+                            System.out.println("\"Escoge el formato en el que quieres convertir el grado: ");
+                            opcion2 = leer.nextInt();
+                        } catch (Exception e) {
+                            leer.nextLine();
+                            System.out.println("\nSeleccione correctamente\n");
+                        }//fin del try-catch
+                        if (opcion2 !=4) {
+                            try {
+                                System.out.println("Escribe el grado que quieres convertir: ");
+                                temperatura = leer.nextFloat();
+                            } catch (Exception e) {
+                                leer.nextLine();
+                                System.out.println("\nSeleccione correctamente\n");
+                            }//fin del try-catch
+                             //if para verificar que ambas opciones no sean iguales
+                            if (opcion1 != opcion2){
+                                formato2.escribir(opcion1, opcion2, temperatura);//Backend
+                            } //fin del if
+                        }//fin del if
                     }//fin del if
-                    else {
-                        if (opcion1 != opcion2) 
-                        formato2.escribir(opcion1, opcion2, temperatura);//Backend
-                    if (temperatura == 0) { //Comienzo del ifelse
-                        System.out.println("Formato de numero invalido");
-                    } //fin del if
-                    }//fin del if-else
+                }//fin del while 
                     break;
                 case 4: 
                     System.out.println("\nAdios");
                     break;
-                default://no es tan necesario, ya que se tiene una validacion en el principio
+                default:
+                    System.out.println("Opcion no valida\nSeleccione correctamente");
                     break;
             }//fin del switch
         } //fin del while
