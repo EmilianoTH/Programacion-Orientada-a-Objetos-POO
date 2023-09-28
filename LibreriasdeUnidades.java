@@ -1,5 +1,5 @@
 public class LibreriasdeUnidades { 
-
+    /* Metodos */
     /**
      * 
      * @param numero Numero double que sera transformado
