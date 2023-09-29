@@ -33,4 +33,8 @@ public class LibreriasdeCalculadora {
         float resul = 0;
         return num1/num2;
     }
+
+    private double raiz(double num){
+        return Math.sqrt(num);
+    }
 }
