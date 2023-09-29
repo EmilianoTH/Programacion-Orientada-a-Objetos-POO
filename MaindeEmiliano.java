@@ -21,9 +21,10 @@ public class MaindeEmiliano {
         Librerias formato = new Librerias(); //Objeto de librerias
         LibreriasdeUnidades format  = new LibreriasdeUnidades(); //Objeto de librerias
         LibreriasdeTemperaturas forma = new LibreriasdeTemperaturas(); //Objeto de librerias
+        LibreriasdeCalculadora calculadora = new LibreriasdeCalculadora(); //Objeto de librerias
         boolean init1 = true, init2 = true; //Booleanos necesarios
-        double unidad = 0; //Variable que utilizara las unidades
-        float temperatura = 0; //Variable que utilizara la temperatura
+        double unidad = 0, raiz = 0; //Variable que utilizara las unidades
+        float temperatura = 0, operabasica1 = 0, operabasica2 = 0; //Variable que utilizara la temperatura
         String sistemas = "", menu = "", op1 = "", op2 = ""; //Variable que utilizara los sistemas
 
         while (init1) {
@@ -31,9 +32,10 @@ public class MaindeEmiliano {
             System.out.println("|[A] Sistemas [0-1][0-7]      |");
             System.out.println("|[B] Unidades [CM-M][PUL-MIL] |");
             System.out.println("|[C] Temperaturas [C-K][K-F]  |");
-            System.out.println("|[D] Salir                    |");
+            System.out.println("|[D] Calculadora Basica [SUM] |");
+            System.out.println("|[E] Salir                    |");
             System.out.println("|-----------------------------|");
-            System.out.print("Elije una opcion de la [A-D]: ");
+            System.out.print("Elije una opcion de la [A-E]: ");
             menu = leer.next();
             switch (menu) {
                 case "A": case "a":
@@ -95,7 +97,7 @@ public class MaindeEmiliano {
                                             if (unidad > 0){ //Valida que ambas opciones no sean iguales y sea positiva, Ifelse 3
                                                 format.mostrar(unidad, Integer.parseInt(op1, 10), Integer.parseInt(op2, 10)); //Metodo de libreria
                                             } else {
-                                                System.out.println("Error\nNo eliga las mismas opciones\nTampoco escriba numeros negativos");
+                                                System.out.println("Error\nNo escriba letras ni tampoco escriba numeros negativos");
                                             } //Fin del iflse 4
                                         } else {
                                             System.out.println("Error\nNo elija las mismas opciones"); //Notificarle al error su usuario
@@ -148,6 +150,61 @@ public class MaindeEmiliano {
                     break;
 
                 case "D": case "d":
+                    while (init2) {
+                        LibreriapersonaldeEmiliano.Maincalculadora();
+                        System.out.println("Elija una opcion del [1-5] que represente la operacion que quiere realizar");
+                        op1 = leer.next();
+                        switch (op1) {
+                            case "1": case "2": case "3": case "4":
+                                if (Integer.parseInt(op1, 10) == 1) //If que verifique que quiere sumar
+                                    System.out.println("Escribe ambos numeros que quieres sumar: ");
+                                if (Integer.parseInt(op1, 10) == 2) //If que verifique que quiere restar
+                                    System.out.println("Escribe ambos numeros que quieres restar: ");
+                                if (Integer.parseInt(op1, 10) == 3) //If que verifique que quiere multiplicar
+                                    System.out.println("Escribe ambos numeros que quieres multiplicar");
+                                if (Integer.parseInt(op1, 10) == 4) //If que verifique que quiere dividir
+                                    System.out.println("Escribe primero el dividendo (Numero que va dentro de la casita)\nEscribe despues el divisor (Numero que va fuera de la casita)");
+
+                                try { //Principio del trycatch
+                                        operabasica1 = leer.nextFloat();
+                                        operabasica2 = leer.nextFloat();
+                                } catch (Exception e) {
+                                    System.out.println("ERROR\nEscriba un numero valido"); 
+                                } //Fin del trycatch
+
+                                if (Integer.parseInt(op1, 10) == 1) //If que verifique que quiere sumar
+                                    calculadora.mostrarsuma(operabasica1, operabasica2);
+                                if (Integer.parseInt(op1, 10) == 2) //If que verifique que quiere restar
+                                    calculadora.mostraresta(operabasica1, operabasica2);
+                                if (Integer.parseInt(op1, 10) == 3) //If que verifique que quiere multiplicar
+                                    calculadora.mostrarmulti(operabasica1, operabasica2);
+                                if (Integer.parseInt(op1, 10) == 4) //If que verifique que quiere dividir
+                                    calculadora.mostrardivision(operabasica1, operabasica2);
+                                break;
+                            
+                            case "5":
+                                System.out.println("Escribe el numero al que le quieres sacar la raiz cuadrada");
+                                try { //Principio del trycatch
+                                        raiz = leer.nextDouble();
+                                } catch (Exception e) {
+                                    System.out.println("ERROR\nEscriba un numero valido"); 
+                                } //Fin del trycatch
+
+                                calculadora.mostrarraiz(raiz);
+                                break;
+
+                            case "6":
+                                init2 = false;
+                                break;
+                            default:
+                                System.out.println("Error\nElija una opcion correcta");
+                                break;
+                        } //Fin del switch secundario
+                    } //Fin del while
+                    init2 = true;
+                    break;
+
+                case "E": case "e":
                         System.out.println("Entendido");
                         init1 = false;
                     break;
