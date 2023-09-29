@@ -18,22 +18,28 @@ public class MainMi {
     public static void main(String[] args) { //comienzo del main
         Scanner leer = new Scanner(System.in); //es la forma de introducir datos
         Librerias formato = new Librerias(); //Objeto de librerias
-        LibreriasdeUnidades formato1 = new LibreriasdeUnidades(); //Objeto de librerias
-        LibreriasdeTemperaturas formato2 = new LibreriasdeTemperaturas(); //Objeto de librerias
+        LibreriasdeUnidades formato1 = new LibreriasdeUnidades(); //Objeto de libreria de unidades
+        LibreriasdeTemperaturas formato2 = new LibreriasdeTemperaturas(); //Objeto de libreria de temperatura
+        LibreriasdeCalculadora formato3 = new LibreriasdeCalculadora();//Objeto de libreria de calculadora
         int opcion = 0; //variables a utilizar
         double unidad = 0;//variable a utilizar en las unidades
         float temperatura = 0; //variable a utilizar en las temperaturas
         String sistema = ""; //variable que utilizar en los sistemas
+        float general1 = 0;//variable que se utilizara en la calculadora
+        float general2 = 0;//variable que se utilizara en la calculadora
+        double raiz = 0;//variable que se utliza en la realizacion de la raiz en la calculadora
         int  opcion1 = 0, opcion2 = 0;//variables para seleccionar formato de entrada y salida
+
         //este while se encarga de no cerrar el programa hasta que el usuario lo solicite
-        while (opcion != 4) {
+        while (opcion != 5) {
             System.out.println("\n\n");
             System.out.println("|         Bienvenido al programa       |");
             System.out.println("|______________________________________|");
             System.out.println("|1) Sistemas                           |");
             System.out.println("|2) Unidades                           |");
             System.out.println("|3) Temperaturas                       |");
-            System.out.println("|4) Salir                              |");
+            System.out.println("|4) Calculadora                        |");
+            System.out.println("|5) Salir                              |");
             System.out.println("|______________________________________|");
             System.out.print("Seleccione el sistema a ejecutar: ");
             //se encarga de validar si se esta ingresando el valor del rango establecido correctamente
@@ -175,7 +181,95 @@ public class MainMi {
                     }//fin del if
                 }//fin del while 
                     break;
-                case 4: 
+                case 4:
+                    opcion = 0;
+                    while(opcion !=6){
+                        System.out.println("_____________________");
+                        System.out.println("|1) Suma            |");
+                        System.out.println("|2) Resta           |");
+                        System.out.println("|3) Multiplicacion  |");
+                        System.out.println("|4) Division        |");
+                        System.out.println("|5) Raiz            |");
+                        System.out.println("|6) Salir           |");
+                        System.out.println("_____________________");
+                        System.out.print("Seleccion: ");
+                        //se encarga de validar si se esta ingresando el valor del rango establecido correctamente
+                        try {
+                            opcion = leer.nextInt();
+                        } catch (Exception e) {
+                            leer.nextLine();
+                            System.out.println("\nSeleccione correctamente\n");
+                        }//fin del try-catch
+                        //este switch 
+                        switch (opcion) {
+                            case 1:
+                                try {
+                                    System.out.println("Escribe el primer numero: ");
+                                    general1 = leer.nextFloat();
+                                    System.out.println("Escribe el segundo numero: ");
+                                    general2 = leer.nextFloat();
+                                } catch (Exception e) {
+                                    leer.nextLine();
+                                    System.out.println("\nSeleccione correctamente\n");
+                                }//fin del try-catch 
+                                formato3.mostrarsuma(general1, general2);
+                                break;
+                            case 2:
+                                try {
+                                    System.out.println("Escribe el primer numero: ");
+                                    general1 = leer.nextFloat();
+                                    System.out.println("Escribe el segundo numero: ");
+                                    general2 = leer.nextFloat();
+                                } catch (Exception e) {
+                                   leer.nextLine();
+                                    System.out.println("\nSeleccione correctamente\n");
+                                }//fin del try-catch
+                                formato3.mostraresta(general1, general2);
+                                break;
+                            case 3:
+                                try {
+                                    System.out.println("Escribe el primer numero: ");
+                                    general1 = leer.nextFloat();
+                                    System.out.println("Escribe el segundo numero: ");
+                                    general2 = leer.nextFloat();
+                                } catch (Exception e) {
+                                   leer.nextLine();
+                                    System.out.println("\nSeleccione correctamente\n");
+                                }//fin del try-catch
+                                formato3.mostrarmulti(general1, general2);
+                                break;
+                            case 4:
+                                try {
+                                    System.out.println("Escribe el primer numero: ");
+                                    general1 = leer.nextFloat();
+                                    System.out.println("Escribe el segundo numero: ");
+                                    general2 = leer.nextFloat();
+                                } catch (Exception e) {
+                                   leer.nextLine();
+                                    System.out.println("\nSeleccione correctamente\n");
+                                }//fin del try-catch
+                                formato3.mostrardivision(general1, general2);
+                                break;
+                            case 5:
+                                try {
+                                    System.out.println("Escribe el numero: ");
+                                    raiz = leer.nextDouble();
+                                } catch (Exception e) {
+                                    leer.nextLine();
+                                    System.out.println("\nSeleccione correctamente\n");
+                                }//fin del try-catch
+                                formato3.mostrarraiz(raiz);
+                                break;
+                            case 6:     
+                                System.out.println("Regresara al menu");
+                                break;
+                            default:
+                                System.out.println("\nSeleccione correctamente\n");
+                                break;
+                        }//fin del switch
+                    }//fin del while
+                    break;
+                case 5: 
                     System.out.println("\nAdios");
                     break;
                 default:
