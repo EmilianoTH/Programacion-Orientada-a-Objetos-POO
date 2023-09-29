@@ -12,25 +12,18 @@
 public class LibreriasdeCalculadora {
     
     private float suma(float num1, float num2){
-        float resul = 0;
-
         return num1+num2;
     }
 
     private float resta(float num1, float num2){
-        float resul = 0;
-
         return num1-num2;
     }
 
     private float multi(float num1, float num2){
-        float resul = 0;
-
         return num1*num2;
     }
 
     private float division(float num1, float num2){
-        float resul = 0;
         return num1/num2;
     }
 
