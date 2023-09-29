@@ -168,29 +168,29 @@ public class MaindeEmiliano {
                                 try { //Principio del trycatch
                                         operabasica1 = leer.nextFloat();
                                         operabasica2 = leer.nextFloat();
+                                        if (Integer.parseInt(op1, 10) == 1) //If que verifique que quiere sumar
+                                            calculadora.mostrarsuma(operabasica1, operabasica2);
+                                        if (Integer.parseInt(op1, 10) == 2) //If que verifique que quiere restar
+                                            calculadora.mostraresta(operabasica1, operabasica2);
+                                        if (Integer.parseInt(op1, 10) == 3) //If que verifique que quiere multiplicar
+                                            calculadora.mostrarmulti(operabasica1, operabasica2);
+                                        if (Integer.parseInt(op1, 10) == 4) //If que verifique que quiere dividir
+                                            calculadora.mostrardivision(operabasica1, operabasica2);
                                 } catch (Exception e) {
                                     System.out.println("ERROR\nEscriba un numero valido"); 
                                 } //Fin del trycatch
 
-                                if (Integer.parseInt(op1, 10) == 1) //If que verifique que quiere sumar
-                                    calculadora.mostrarsuma(operabasica1, operabasica2);
-                                if (Integer.parseInt(op1, 10) == 2) //If que verifique que quiere restar
-                                    calculadora.mostraresta(operabasica1, operabasica2);
-                                if (Integer.parseInt(op1, 10) == 3) //If que verifique que quiere multiplicar
-                                    calculadora.mostrarmulti(operabasica1, operabasica2);
-                                if (Integer.parseInt(op1, 10) == 4) //If que verifique que quiere dividir
-                                    calculadora.mostrardivision(operabasica1, operabasica2);
                                 break;
                             
                             case "5":
                                 System.out.println("Escribe el numero al que le quieres sacar la raiz cuadrada");
                                 try { //Principio del trycatch
                                         raiz = leer.nextDouble();
+                                        calculadora.mostrarraiz(raiz);
                                 } catch (Exception e) {
                                     System.out.println("ERROR\nEscriba un numero valido"); 
                                 } //Fin del trycatch
 
-                                calculadora.mostrarraiz(raiz);
                                 break;
 
                             case "6":
