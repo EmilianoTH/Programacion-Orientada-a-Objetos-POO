@@ -29,4 +29,14 @@ public class LibreriapersonaldeEmiliano {
         System.out.println("|4) Salir                                  |");
         System.out.println("|------------------------------------------|");
     }
+
+    public static void Maincalculadora(){
+        System.out.println("\n\n|------------------------------------------|");
+        System.out.println("|1) Suma                                   |");
+        System.out.println("|2) Resta                                  |");
+        System.out.println("|3) Multiplicacion                         |");
+        System.out.println("|4) Division                               |");
+        System.out.println("|5) Salir                                  |");
+        System.out.println("|------------------------------------------|");
+    }
 }
