@@ -208,11 +208,11 @@ public class MainMi {
                                     general1 = leer.nextFloat();
                                     System.out.println("Escribe el segundo numero: ");
                                     general2 = leer.nextFloat();
+                                    formato3.mostrarsuma(general1, general2);
                                 } catch (Exception e) {
                                     leer.nextLine();
                                     System.out.println("\nSeleccione correctamente\n");
-                                }//fin del try-catch 
-                                formato3.mostrarsuma(general1, general2);
+                                }//fin del try-catch
                                 break;
                             case 2:
                                 try {
@@ -220,11 +220,11 @@ public class MainMi {
                                     general1 = leer.nextFloat();
                                     System.out.println("Escribe el segundo numero: ");
                                     general2 = leer.nextFloat();
+                                   formato3.mostraresta(general1, general2);
                                 } catch (Exception e) {
                                    leer.nextLine();
                                     System.out.println("\nSeleccione correctamente\n");
                                 }//fin del try-catch
-                                formato3.mostraresta(general1, general2);
                                 break;
                             case 3:
                                 try {
@@ -232,11 +232,11 @@ public class MainMi {
                                     general1 = leer.nextFloat();
                                     System.out.println("Escribe el segundo numero: ");
                                     general2 = leer.nextFloat();
+                                    formato3.mostrarmulti(general1, general2);
                                 } catch (Exception e) {
                                    leer.nextLine();
                                     System.out.println("\nSeleccione correctamente\n");
                                 }//fin del try-catch
-                                formato3.mostrarmulti(general1, general2);
                                 break;
                             case 4:
                                 try {
@@ -244,21 +244,21 @@ public class MainMi {
                                     general1 = leer.nextFloat();
                                     System.out.println("Escribe el segundo numero: ");
                                     general2 = leer.nextFloat();
+                                    formato3.mostrardivision(general1, general2);
                                 } catch (Exception e) {
                                    leer.nextLine();
                                     System.out.println("\nSeleccione correctamente\n");
                                 }//fin del try-catch
-                                formato3.mostrardivision(general1, general2);
                                 break;
                             case 5:
                                 try {
                                     System.out.println("Escribe el numero: ");
                                     raiz = leer.nextDouble();
+                                    formato3.mostrarraiz(raiz);
                                 } catch (Exception e) {
                                     leer.nextLine();
                                     System.out.println("\nSeleccione correctamente\n");
                                 }//fin del try-catch
-                                formato3.mostrarraiz(raiz);
                                 break;
                             case 6:     
                                 System.out.println("Regresara al menu");
