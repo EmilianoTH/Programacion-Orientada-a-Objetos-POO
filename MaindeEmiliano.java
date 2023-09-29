@@ -47,17 +47,19 @@ public class MaindeEmiliano {
                             op2 = leer.next();
                                 if (op2.matches("^[1-5]")){ //Valida que meta una entrada valida, ifelse 2
                                     if (Integer.parseInt(op2, 10) != 5){ //Inicio del ifelse 2
-                                        if (Integer.parseInt(op1, 10) != Integer.parseInt(op2, 10)) { //Inicio if 3
+                                        if (Integer.parseInt(op1, 10) != Integer.parseInt(op2, 10)) { //Inicio ifelse 3
                                             System.out.print("Escribe el numero que quieres transformar: ");
                                             sistemas = leer.next();
-                                                sistemas = formato.convertidor(Integer.parseInt(op1, 10), Integer.parseInt(op2, 10), sistemas);
-                                                if (sistemas == "") { //Le avisa al usuario que el formato de digito no es valido, iflse
+                                                sistemas = formato.convertidor(Integer.parseInt(op1, 10), Integer.parseInt(op2, 10), sistemas); //Metodo de libreria
+                                                if (sistemas == "") { //Le avisa al usuario que el formato de digito no es valido, iflse 4
                                                     System.out.println("\n\nNo Te VaLlAs a CanSaR DE EScRiBir >:(");
                                                     System.out.println("Traduccion: Formato de numero invalido");
                                                 } else { //Si no falla, se le muestra el resultado
                                                     System.out.println("Resultado: "+sistemas);
-                                                } //Fin del ifelse 3
-                                        } //Fin del if 3
+                                                } //Fin del ifelse 4
+                                        } else {
+                                            System.out.println("Error\nNo elija las mismas opciones"); //Notificarle al error su usuario
+                                        } //Fin del ifelse 3
                                     } else {
                                         init2 = false;
                                     } //fin de ifelse 2
@@ -81,7 +83,7 @@ public class MaindeEmiliano {
                                 op2 = leer.next();
                                 if (op2.matches("^[1-7]")){ //Valida que meta una entrada valida, if 2
                                     if (Integer.parseInt(op2, 10) != 7) { //Valida que no quiera salir del menu, ifelse 2
-                                        if (Integer.parseInt(op1, 10) != Integer.parseInt(op2, 10)) {
+                                        if (Integer.parseInt(op1, 10) != Integer.parseInt(op2, 10)) { //Inicio del ifelse 3
                                             System.out.println("Escribe el numero que que quieres transformar: ");
                                             try { //Principio del trycatch
                                                 unidad = leer.nextDouble();
@@ -91,11 +93,13 @@ public class MaindeEmiliano {
                                             } //Fin del trycatch
 
                                             if (unidad > 0){ //Valida que ambas opciones no sean iguales y sea positiva, Ifelse 3
-                                                format.mostrar(unidad, Integer.parseInt(op1, 10), Integer.parseInt(op2, 10));
+                                                format.mostrar(unidad, Integer.parseInt(op1, 10), Integer.parseInt(op2, 10)); //Metodo de libreria
                                             } else {
                                                 System.out.println("Error\nNo eliga las mismas opciones\nTampoco escriba numeros negativos");
-                                            } //Fin del iflse 3
-                                        }
+                                            } //Fin del iflse 4
+                                        } else {
+                                            System.out.println("Error\nNo elija las mismas opciones"); //Notificarle al error su usuario
+                                        } //Fin del ifelse3
                                     } else {
                                         init2 = false;
                                     } //Fin del ifse 2
@@ -119,7 +123,7 @@ public class MaindeEmiliano {
                                 op2 = leer.next();
                                 if (op2.matches("^[1-4]")){ //Validar entrada, if 2
                                     if (Integer.parseInt(op2, 10) != 4) { //Valida que no quiera salir del menu, ifelse 2
-                                        if (Integer.parseInt(op1, 10) != Integer.parseInt(op2, 10)) {
+                                        if (Integer.parseInt(op1, 10) != Integer.parseInt(op2, 10)) { //Inicio del ifelse 3
                                             System.out.println("Escribe el numero que quieres transformar");
                                             try { //Inicio del trycatch
                                                 temperatura = leer.nextFloat();
@@ -127,8 +131,10 @@ public class MaindeEmiliano {
                                                 System.out.println("\nERROR\nFormato de numero invalido");
                                             } //Fin del trycatch
 
-                                            forma.escribir(Integer.parseInt(op1, 10), Integer.parseInt(op2, 10), temperatura);
-                                        }
+                                            forma.escribir(Integer.parseInt(op1, 10), Integer.parseInt(op2, 10), temperatura); //Metodo de libreria
+                                        } else {
+                                            System.out.println("Error\nNo elija las mismas opciones"); //Notificarle al error su usuario
+                                        } //Fin del ifelse 3
                                     } else {
                                         init2 = false;
                                     } //Fin del ifelse2
