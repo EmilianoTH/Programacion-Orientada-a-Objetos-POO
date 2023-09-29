@@ -36,7 +36,8 @@ public class LibreriapersonaldeEmiliano {
         System.out.println("|2) Resta                                  |");
         System.out.println("|3) Multiplicacion                         |");
         System.out.println("|4) Division                               |");
-        System.out.println("|5) Salir                                  |");
+        System.out.println("|5) Raiz                                   |");
+        System.out.println("|6) Salir                                  |");
         System.out.println("|------------------------------------------|");
     }
 }
