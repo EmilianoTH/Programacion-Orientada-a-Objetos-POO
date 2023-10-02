@@ -66,7 +66,8 @@ public class LibreriasdeCalculadora {
         float resultado = 0;
         resultado = suma(num1, num2);
         System.out.println("El resultado de tu suma es: "+resultado);
-        return resultado;
+        guardar = resultado;
+        return guardar;
     }//fin de la clase mostrar suma 
 
     /**
@@ -77,7 +78,8 @@ public class LibreriasdeCalculadora {
         float resultado = 0;
         resultado = resta(num1, num2);
         System.out.println("El resultado de la resta es: "+resultado);
-        return resultado;
+        guardar = resultado;
+        return guardar;
     }//fin de la clase mostrar resta
 
     /**
@@ -88,7 +90,8 @@ public class LibreriasdeCalculadora {
         float resultado = 0;
         resultado = multi(num1, num2);
         System.out.println("El resultado de la multiplicacion es: "+resultado);
-        return resultado;
+        guardar = resultado;
+        return guardar;
     }//fin de la clase mostrar multiplicacion
 
     /**
@@ -99,7 +102,8 @@ public class LibreriasdeCalculadora {
         float resultado = 0;
         resultado = division(num1, num2);
         System.out.println("El resultado de la division es: "+resultado);
-        return resultado;
+        guardar = resultado;
+        return guardar;
     }//fin de a clase mostrar division
 
     /**
@@ -109,6 +113,7 @@ public class LibreriasdeCalculadora {
         double resultado = 0;
         resultado = raiz(num);
         System.out.println("El resultado de la raiz es: "+resultado);
-        return resultado;
+        guardar2 = resultado;
+        return guardar;
     }//fin de la clase mostrar raiz 
 }//fin de la clase principal 
