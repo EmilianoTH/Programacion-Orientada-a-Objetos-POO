@@ -9,6 +9,10 @@
  * Descripcion: convierte el ingreso del valor a la temperatura que tu hayas elegido
  */
 public class LibreriasdeCalculadora {
+    /* Atributos */
+    float guardar = 0;
+    double guardar2 = 0;
+
     /* Metodos */
     /**
      * @param num1 Numero a sumar
