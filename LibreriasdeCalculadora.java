@@ -58,48 +58,53 @@ public class LibreriasdeCalculadora {
      * @param num1 Numero a sumar
      * @param num2 Numero a sumar
      */
-    public void mostrarsuma(float num1, float num2){
+    public float mostrarsuma(float num1, float num2){
         float resultado = 0;
         resultado = suma(num1, num2);
         System.out.println("El resultado de tu suma es: "+resultado);
+        return resultado;
     }//fin de la clase mostrar suma 
 
     /**
      * @param num1 Primer numero a restar 
      * @param num2 Segundo numero a restar 
      */
-    public void mostraresta (float num1, float num2){
+    public float mostraresta (float num1, float num2){
         float resultado = 0;
         resultado = resta(num1, num2);
         System.out.println("El resultado de la resta es: "+resultado);
+        return resultado;
     }//fin de la clase mostrar resta
 
     /**
      * @param num1 Primer numero a multiplicacion
      * @param num2 Segundo numero a multiplicacion
      */
-    public void mostrarmulti(float num1, float num2){
+    public float mostrarmulti(float num1, float num2){
         float resultado = 0;
         resultado = multi(num1, num2);
         System.out.println("El resultado de la multiplicacion es: "+resultado);
+        return resultado;
     }//fin de la clase mostrar multiplicacion
 
     /**
      * @param num1 Primer numero a dividir
      * @param num2 Segundo numero a dividir
      */
-    public void mostrardivision(float num1, float num2){
+    public float mostrardivision(float num1, float num2){
         float resultado = 0;
         resultado = division(num1, num2);
         System.out.println("El resultado de la division es: "+resultado);
+        return resultado;
     }//fin de a clase mostrar division
 
     /**
      * @param num Numero a sacar raiz 
      */
-    public void mostrarraiz(double num){
+    public double mostrarraiz(double num){
         double resultado = 0;
         resultado = raiz(num);
         System.out.println("El resultado de la raiz es: "+resultado);
+        return resultado;
     }//fin de la clase mostrar raiz 
 }//fin de la clase principal 
