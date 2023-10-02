@@ -23,8 +23,8 @@ public class MaindeEmiliano {
         LibreriasdeTemperaturas forma = new LibreriasdeTemperaturas(); //Objeto de librerias
         LibreriasdeCalculadora calculadora = new LibreriasdeCalculadora(); //Objeto de librerias
         boolean init1 = true, init2 = true; //Booleanos necesarios
-        double unidad = 0, raiz = 0; //Variable que utilizara las unidades
-        float temperatura = 0, operabasica1 = 0, operabasica2 = 0; //Variable que utilizara la temperatura
+        double unidad = 0, raiz = 0, guardar2 = 0; //Variable que utilizara las unidades
+        float temperatura = 0, operabasica1 = 0, operabasica2 = 0, guardar = 0; //Variable que utilizara la temperatura
         String sistemas = "", menu = "", op1 = "", op2 = ""; //Variable que utilizara los sistemas
 
         while (init1) {
@@ -152,10 +152,11 @@ public class MaindeEmiliano {
                 case "D": case "d":
                     while (init2) {
                         LibreriapersonaldeEmiliano.Maincalculadora();
-                        System.out.println("|Numero guardado de tu ultima operacion:");
+                        System.out.println("|Numero guardado de tu ultima operacion: "+guardar+"  |");
                         System.out.println("|------------------------------------------|");
                         System.out.println("\nElija una opcion del [1-5] que represente la operacion que quiere realizar");
                         op1 = leer.next();
+                        guardar2 = guardar;
                         switch (op1) {
                             case "1": case "2": case "3": case "4":
                                 if (Integer.parseInt(op1, 10) == 1) //If que verifique que quiere sumar
@@ -220,14 +221,23 @@ public class MaindeEmiliano {
                                 op2 = leer.next();
                                 if (op2.matches("^[12]")) { //Validar que no meta letras, if 1
                                     if (Integer.parseInt(op2, 10) == 1) { //If 2
-                                        System.out.println("Escribe el numero al que le quieres sacar la raiz cuadrada");
-                                        if (guardar2 >0) { //If 3
+                                        if (guardar2 >0) { //If 4
                                             guardar2 = calculadora.mostrarraiz(guardar2);
-                                        } //Fin del if 3
+                                        } //Fin del if 4
                                     } //Fin del if 2
-                                    if (init2) {
-                                        
-                                    }
+                                    if (Integer.parseInt(op2, 10) == 2) { //If 3
+                                        System.out.print("Escribe el numero al que le quieres sacar una raiz cuadrada: ");
+                                        try {
+                                            raiz = leer.nextDouble();
+                                            if (raiz > 0) { //Ifelse 1
+                                                guardar2 = calculadora.mostrarraiz(raiz);
+                                            } else {
+                                                System.out.println("Error\nNo escriba 0 ni numeros negativos");
+                                            } //Fin de ifelse 1
+                                        } catch (Exception e) {
+                                            System.out.println("Error\nOpcion incorrecta");
+                                        }
+                                    } //Fin del if 3
                                 } // Fin del if 1
 
                                 break;
