@@ -153,9 +153,9 @@ public class MaindeEmiliano {
                 case "D": case "d":
                     while (init2) {
                         LibreriapersonaldeEmiliano.Maincalculadora();
-                        System.out.println("|Numero guardado de tu ultima operacion basica: "+guardar+" |");
-                        System.out.println("|Numero guardado de tu ultima raiz cuadrada: "+guardar2+" |");
-                        System.out.println("|------------------------------------------|");
+                        System.out.println("|Numero guardado de tu ultima op.basica: "+guardar+" |");
+                        System.out.println("|Numero guardado de tu ultima raiz.cua: "+guardar2+"  |");
+                        System.out.println("|--------------------------------------------|");
                         System.out.println("\nElija una opcion del [1-5] que represente la operacion que quiere realizar");
                         op1 = leer.next();
                         guardar2 = guardar;
@@ -267,7 +267,7 @@ public class MaindeEmiliano {
                                     } //Fin del if 3
                                 } // Fin del if 1
 
-                                if (raiz != 0) {//If para evitar problemas tontos
+                                if (raiz > 0) {//If para evitar problemas tontos
                                         System.out.println("\n¿Quieres guardar el numero que te ha dado como resultado?\n[1] SI\n[2] NO");
                                         try { //Inicio del trycatch
                                             opcionif = leer.nextInt();
