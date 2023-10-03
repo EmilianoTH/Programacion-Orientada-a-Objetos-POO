@@ -23,6 +23,23 @@ public class LibreriasdeCalculadora {
         return num1+num2;
     }//fin de la clase privada de la suma
 
+
+    /**
+     * 
+     * @return @return variable guardar 
+     */
+    public float getGuardar() {
+        return guardar;
+    }
+
+    /**
+     * 
+     * @return variable guardar 2
+     */
+    public double getGuardar2() {
+        return guardar2;
+    }
+
     /**
      * @param num1 Numero a restar
      * @param num2 Numero a restar
@@ -62,58 +79,53 @@ public class LibreriasdeCalculadora {
      * @param num1 Numero a sumar
      * @param num2 Numero a sumar
      */
-    public float mostrarsuma(float num1, float num2){
+    public void mostrarsuma(float num1, float num2){
         float resultado = 0;
         resultado = suma(num1, num2);
         System.out.println("El resultado de tu suma es: "+resultado);
         guardar = resultado;
-        return guardar;
     }//fin de la clase mostrar suma 
 
     /**
      * @param num1 Primer numero a restar 
      * @param num2 Segundo numero a restar 
      */
-    public float mostraresta (float num1, float num2){
+    public void mostraresta (float num1, float num2){
         float resultado = 0;
         resultado = resta(num1, num2);
         System.out.println("El resultado de la resta es: "+resultado);
         guardar = resultado;
-        return guardar;
     }//fin de la clase mostrar resta
 
     /**
      * @param num1 Primer numero a multiplicacion
      * @param num2 Segundo numero a multiplicacion
      */
-    public float mostrarmulti(float num1, float num2){
+    public void mostrarmulti(float num1, float num2){
         float resultado = 0;
         resultado = multi(num1, num2);
         System.out.println("El resultado de la multiplicacion es: "+resultado);
         guardar = resultado;
-        return guardar;
     }//fin de la clase mostrar multiplicacion
 
     /**
      * @param num1 Primer numero a dividir
      * @param num2 Segundo numero a dividir
      */
-    public float mostrardivision(float num1, float num2){
+    public void mostrardivision(float num1, float num2){
         float resultado = 0;
         resultado = division(num1, num2);
         System.out.println("El resultado de la division es: "+resultado);
         guardar = resultado;
-        return guardar;
     }//fin de a clase mostrar division
 
     /**
      * @param num Numero a sacar raiz 
      */
-    public double mostrarraiz(double num){
+    public void mostrarraiz(double num){
         double resultado = 0;
         resultado = raiz(num);
         System.out.println("El resultado de la raiz es: "+resultado);
         guardar2 = resultado;
-        return guardar;
     }//fin de la clase mostrar raiz 
 }//fin de la clase principal 
