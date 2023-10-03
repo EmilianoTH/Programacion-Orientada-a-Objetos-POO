@@ -52,8 +52,10 @@ public class MainMi {
             //este switch al poner la opcion, se dirige a lo solicita para dar otro mini switch dependiendo del caso
             switch (opcion) {
                 case 1:
-                    opcion1 = 0;
-                    opcion2 = 0;
+                    opcion1 = 0;//evita ciertos problemas con el while al estar igualado a 0 
+                    opcion2 = 0;//evita ciertos problemas con el while al estar igualado a 0 
+                    //este while se encarga de cerrar el mini menu de sistemas si el usuario
+                    //lo solicita, para regresar al menu principal
                     while(opcion1 !=5 && opcion2 !=5){
                     System.out.println("________________________________________");
                     System.out.println("|1) Binario                            |");
@@ -71,7 +73,9 @@ public class MainMi {
                         leer.nextLine();
                         System.out.println("\nSeleccione correctamente\n");
                     }//fin del try-catch de validacion 
+                    //if encargado de validar si el usuario desde el principio ingresa 5 para salir
                     if (opcion1 !=5) {
+                //se encarga de validar si se esta ingresando el valor del rango establecido correctamente
                         try {
                             System.out.println("Escoge el formato en el que quieres convertir el numero: ");
                             opcion2 = leer.nextInt();
@@ -79,6 +83,7 @@ public class MainMi {
                             leer.nextLine();
                             System.out.println("\nSeleccione correctamente\n");
                         }//fin del try-catch de validacion
+                     //if encargado de validar si el usuario desde el principio ingresa 5 para salir
                         if (opcion2 !=5) {
                             //if para verificar que ambas opciones no sean iguales
                             if (opcion1 != opcion2){
@@ -95,8 +100,10 @@ public class MainMi {
                 }//fin del while
                     break;
                 case 2: 
-                    opcion1 = 0;
-                    opcion2 = 0;
+                    opcion1 = 0;//evita ciertos problemas con el while al estar igualado a 0 
+                    opcion2 = 0;//evita ciertos problemas con el while al estar igualado a 0 
+                    //este while se encarga de cerrar el mini menu de unidades si el usuario
+                    //lo solicita, para regresar al menu principal
                     while (opcion1 !=7 && opcion2 !=7){
                     System.out.println("________________________________________");
                     System.out.println("|1) Centimetros                        |");
@@ -115,7 +122,9 @@ public class MainMi {
                         leer.nextLine();
                         System.out.println("\nSeleccione correctamente\n");
                     }//fin del try-catch de validacion 
+                     //este if se encarga de verficar si el usuario no ingreso el valor para salir
                     if (opcion1 !=7) {
+                 //se encarga de validar si se esta ingresando el valor del rango establecido correctamente
                         try {
                             System.out.println("Escoge el formato en el que quieres convertir el numero: ");
                             opcion2 = leer.nextInt();
@@ -123,7 +132,9 @@ public class MainMi {
                             leer.nextLine();
                             System.out.println("\nSeleccione correctamente\n");
                         }//fin del try catch
+                     //este if se encarga de verficar si el usuario no ingreso el valor para salir
                         if (opcion2 !=7) {
+                       //se encarga de validar si se esta ingresando el valor del rango establecido correctamente
                             try {
                                 System.out.println("Escribe el numero que quieres convertir: ");
                                 unidad = leer.nextDouble();//Numero a convertir
@@ -140,8 +151,10 @@ public class MainMi {
                 }//fin del while
                     break;
                 case 3:
-                    opcion1 = 0;
-                    opcion2 = 0;
+                    opcion1 = 0;//evita ciertos problemas con el while al estar igualado a 0 
+                    opcion2 = 0;//evita ciertos problemas con el while al estar igualado a 0
+                    //este while se encarga de cerrar el mini menu de temperaturas si el usuario
+                    //lo solicita, para regresar al menu principal
                     while(opcion1 !=4 && opcion2 !=4){
                     System.out.println("___________________________________");
                     System.out.println("|1) Kelvin                        |");
@@ -157,7 +170,9 @@ public class MainMi {
                         leer.nextLine();
                         System.out.println("\nSeleccione correctamente\n");
                     }//fin del try-catch de validacion 
+                     //este if se encarga de verficar si el usuario no ingreso el valor para salir
                     if (opcion1 !=4) {
+                      //se encarga de validar si se esta ingresando el valor del rango establecido correctamente
                         try {
                             System.out.println("\"Escoge el formato en el que quieres convertir el grado: ");
                             opcion2 = leer.nextInt();
@@ -165,7 +180,9 @@ public class MainMi {
                             leer.nextLine();
                             System.out.println("\nSeleccione correctamente\n");
                         }//fin del try-catch
+                     //este if se encarga de verficar si el usuario no ingreso el valor para salir
                         if (opcion2 !=4) {
+                          //se encarga de validar si se esta ingresando el valor del rango establecido correctamente
                             try {
                                 System.out.println("Escribe el grado que quieres convertir: ");
                                 temperatura = leer.nextFloat();
@@ -182,7 +199,9 @@ public class MainMi {
                 }//fin del while 
                     break;
                 case 4:
-                    opcion = 0;
+                    opcion = 0;//evita ciertos problemas con el while al estar igualado a 0 
+                   //se encarga de ejecutar hasta que el usuario decida cerrar la calculadora y regresar
+                    //al menu principal con las otras opciones
                     while(opcion !=6){
                         System.out.println("_____________________");
                         System.out.println("|1) Suma            |");
@@ -200,9 +219,10 @@ public class MainMi {
                             leer.nextLine();
                             System.out.println("\nSeleccione correctamente\n");
                         }//fin del try-catch
-                        //este switch 
+                       //este switch se encarga de mostrar cada caso dependiendo el que el usuario este solicitando
                         switch (opcion) {
                             case 1:
+                          //se encarga de validar si se esta ingresando el valor del rango establecido correctamente
                                 try {
                                     System.out.println("Escribe el primer numero: ");
                                     general1 = leer.nextFloat();
@@ -215,6 +235,7 @@ public class MainMi {
                                 }//fin del try-catch
                                 break;
                             case 2:
+                          //se encarga de validar si se esta ingresando el valor del rango establecido correctamente
                                 try {
                                     System.out.println("Escribe el primer numero: ");
                                     general1 = leer.nextFloat();
@@ -227,6 +248,7 @@ public class MainMi {
                                 }//fin del try-catch
                                 break;
                             case 3:
+                         //se encarga de validar si se esta ingresando el valor del rango establecido correctamente
                                 try {
                                     System.out.println("Escribe el primer numero: ");
                                     general1 = leer.nextFloat();
@@ -239,26 +261,43 @@ public class MainMi {
                                 }//fin del try-catch
                                 break;
                             case 4:
+                     //se encarga de validar si se esta ingresando el valor del rango establecido correctamente
                                 try {
                                     System.out.println("Escribe el primer numero: ");
                                     general1 = leer.nextFloat();
                                     System.out.println("Escribe el segundo numero: ");
                                     general2 = leer.nextFloat();
-                                    formato3.mostrardivision(general1, general2);
                                 } catch (Exception e) {
                                    leer.nextLine();
                                     System.out.println("\nSeleccione correctamente\n");
                                 }//fin del try-catch
+                              //este if se encarga de validar que ingrese valores diferente de 0
+                                if (general1 !=0 && general2 !=0) {
+                                    formato3.mostrardivision(general1, general2);
+                                }//fin del if
+                                //se encarga de dar una advertencia al usuario si escribio 0 
+                                else{
+                                    System.out.println("\nFormato de numero invalido\n");
+                                }//fin del if-else
                                 break;
                             case 5:
+                        //se encarga de validar si se esta ingresando el valor del rango establecido correctamente
                                 try {
                                     System.out.println("Escribe el numero: ");
                                     raiz = leer.nextDouble();
-                                    formato3.mostrarraiz(raiz);
                                 } catch (Exception e) {
                                     leer.nextLine();
                                     System.out.println("\nSeleccione correctamente\n");
                                 }//fin del try-catch
+                          //este if se encarga de validar que ingrese valores mayor a 0, evitando
+                                //los imaginarios en la raiz
+                                if (raiz !=0 && raiz > 0) {
+                                    formato3.mostrarraiz(raiz);
+                                }//fin del if
+                                //se encarga de dar una advertencia al usuario si escribio numero imaginario o 0
+                                else{
+                                    System.out.println("\nFormato de numero invalido\n");
+                                }//fin del if-else
                                 break;
                             case 6:     
                                 System.out.println("Regresara al menu");
