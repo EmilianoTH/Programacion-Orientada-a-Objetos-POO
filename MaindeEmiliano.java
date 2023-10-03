@@ -153,37 +153,39 @@ public class MaindeEmiliano {
                 case "D": case "d":
                     while (init2) {
                         LibreriapersonaldeEmiliano.Maincalculadora();
-                        System.out.println("|Numero guardado de tu ultima operacion: "+guardar+"  |");
+                        System.out.println("|Numero guardado de tu ultima operacion basica: "+guardar+" |");
+                        System.out.println("|Numero guardado de tu ultima raiz cuadrada: "+guardar2+" |");
                         System.out.println("|------------------------------------------|");
                         System.out.println("\nElija una opcion del [1-5] que represente la operacion que quiere realizar");
                         op1 = leer.next();
                         guardar2 = guardar;
                         switch (op1) {
                             case "1": case "2": case "3": case "4":
-                                if (Integer.parseInt(op1, 10) == 1) //If que verifique que quiere sumar
-                                    System.out.println("Escribe ambos numeros que quieres sumar: ");
-                                if (Integer.parseInt(op1, 10) == 2) //If que verifique que quiere restar
-                                    System.out.println("Escribe ambos numeros que quieres restar: ");
-                                if (Integer.parseInt(op1, 10) == 3) //If que verifique que quiere multiplicar
-                                    System.out.println("Escribe ambos numeros que quieres multiplicar");
-                                if (Integer.parseInt(op1, 10) == 4) //If que verifique que quiere dividir
-                                    System.out.println("Escribe primero el dividendo (Numero que va dentro de la casita)\nEscribe despues el divisor (Numero que va fuera de la casita)");
-
                                     System.out.println("\n\nEscribe 1 si quieres trabajar con el numero guardado\nEscribe 2 si quieres trabajar con datos nuevos");
                                     op2 = leer.next();
-                                    if (op2.matches("^[12]")) { //Valida que meta una opcion correcta, if 1
+                                    if (op2.matches("^[1-2]")) { //Valida que meta una opcion correcta, if 1
                                         if (Integer.parseInt(op2, 10) == 1) { //Valida que quiere trabajar con el numero guardado, if 2
+                                            /* Darle instrucciones correspondientes a su pedido*/ 
+                                            if (Integer.parseInt(op1, 10) == 1) //If que verifique que quiere sumar
+                                                System.out.println("Escribe el numero que quieres sumar: ");
+                                            if (Integer.parseInt(op1, 10) == 2) //If que verifique que quiere restar
+                                                System.out.println("Escribe el numero que quieres restar: ");
+                                            if (Integer.parseInt(op1, 10) == 3) //If que verifique que quiere multiplicar
+                                                System.out.println("Escribe el numeros que quieres multiplicar");
+                                            if (Integer.parseInt(op1, 10) == 4) //If que verifique que quiere dividir
+                                                System.out.println("Escribe el divisor (Numero que va fuera de la casita)");
+
                                             try { //Principio del trycatch
                                                 operabasica2 = leer.nextFloat();
                                                 if (operabasica2 >= 0 || operabasica2 <= 0) {
-                                                    if (Integer.parseInt(op1, 10) == 1) //If que verifique que quiere sumar
+                                                    if (Integer.parseInt(op1, 10) == 1 && guardar != 0) //If que verifique que quiere sumar
                                                         calculadora.mostrarsuma(guardar, operabasica2);
-                                                    if (Integer.parseInt(op1, 10) == 2) //If que verifique que quiere restar
+                                                    if (Integer.parseInt(op1, 10) == 2 && guardar != 0) //If que verifique que quiere restar
                                                         calculadora.mostraresta(guardar, operabasica2);
-                                                    if (Integer.parseInt(op1, 10) == 3) //If que verifique que quiere multiplicar
+                                                    if (Integer.parseInt(op1, 10) == 3 && guardar != 0) //If que verifique que quiere multiplicar
                                                         calculadora.mostrarmulti(guardar, operabasica2);
                                                 }
-                                                if (operabasica2 != 0) { //If que prohiba dividir entre 0, ifelse 1
+                                                if (operabasica2 != 0 && Integer.parseInt(op1, 10) == 4 && guardar != 0) { //If que prohiba dividir entre 0, ifelse 1
                                                         calculadora.mostrardivision(guardar, operabasica2);
                                                 } else {
                                                     System.out.println("No introduzca el numero 0");
@@ -193,6 +195,17 @@ public class MaindeEmiliano {
                                             } //Fin del trycatch
                                         } //Fin de if 2
                                         if (Integer.parseInt(op2,10) == 2) { //Valida que quiera trabajar sin el numero guardado, if 3
+
+                                            /* Darle instrucciones correspondientes a su pedido*/ 
+                                            if (Integer.parseInt(op1, 10) == 1) //If que verifique que quiere sumar
+                                                System.out.println("Escribe ambos numeros que quieres sumar: ");
+                                            if (Integer.parseInt(op1, 10) == 2) //If que verifique que quiere restar
+                                                System.out.println("Escribe ambos numeros que quieres restar: ");
+                                            if (Integer.parseInt(op1, 10) == 3) //If que verifique que quiere multiplicar
+                                                System.out.println("Escribe ambos numeros que quieres multiplicar");
+                                            if (Integer.parseInt(op1, 10) == 4) //If que verifique que quiere dividir
+                                            System.out.println("Escribe primero el dividendo (Numero que va dentro de la casita)\nEscribe despues el divisor (Numero que va fuera de la casita)");
+
                                             try { //Principio del trycatch
                                                 operabasica1 = leer.nextFloat();
                                                 operabasica2 = leer.nextFloat();
@@ -204,10 +217,10 @@ public class MaindeEmiliano {
                                                     if (Integer.parseInt(op1, 10) == 3) //If que verifique que quiere multiplicar
                                                         calculadora.mostrarmulti(operabasica1, operabasica2);
                                                 }
-                                                if (operabasica2 != 0) { //If que prohiba dividir entre 0, ifelse 2
+                                                if (operabasica2 != 0 && Integer.parseInt(op1, 10) == 4) { //If que prohiba dividir entre 0, ifelse 2
                                                         calculadora.mostrardivision(operabasica1, operabasica2);
                                                 } else {
-                                                    System.out.println("No introduzca el numero 0");
+                                                    System.out.println("No divida entre el numero 0");
                                                 } //Fin de ifelse 2
                                             } catch (Exception e) {
                                                 System.out.println("ERROR\nEscriba un numero valido"); 
@@ -215,23 +228,24 @@ public class MaindeEmiliano {
                                         } //Fin del if
                                     }//Fin  de if 1
 
-                                    System.out.println("\n¿Quieres guardar el numero que te ha dado como resultado?\n[1] SI\n[2] NO");
-                                    try { //Inicio del trycatch
-                                        opcionif = leer.nextInt();
-                                    } catch (Exception e) {
-                                        System.out.println("Error\nElije una opcion correcta");
-                                    } //Fin del trycatch
+                                    if (operabasica1 != 0 && operabasica2 != 0) {//If para evitar problemas tontos
+                                        System.out.println("\n¿Quieres guardar el numero que te ha dado como resultado?\n[1] SI\n[2] NO");
+                                        try { //Inicio del trycatch
+                                            opcionif = leer.nextInt();
+                                        } catch (Exception e) {
+                                            System.out.println("Error\nElije una opcion correcta");
+                                        } //Fin del trycatch
 
-                                    if (opcionif == 1) { //If para validar si quiere guardar
-                                        guardar = calculadora.getGuardar();
-                                    } //Fin del if para valdiar si quiere guardar
+                                        if (opcionif == 1) { //If para validar si quiere guardar
+                                            guardar = calculadora.getGuardar();
+                                        } //Fin del if para valdiar si quiere guardar   
+                                    } //Fin del if para evitar problemas tontos
 
                                 break;
                             
                             case "5":
                                 System.out.println("\n\nEscribe el numero 1 para trabajar con el numero que has guardado\nEscribe el numero 2 para trabajar con numeros reiniciados"); //Validar
                                 op2 = leer.next();
-                                guardar2 = guardar;
                                 if (op2.matches("^[12]")) { //Validar que no meta letras, if 1
                                     if (Integer.parseInt(op2, 10) == 1) { //If 2
                                         if (guardar2 >0) { //If 4
@@ -253,19 +267,26 @@ public class MaindeEmiliano {
                                     } //Fin del if 3
                                 } // Fin del if 1
 
-                                System.out.println("\n¿Quieres guardar el numero que te ha dado como resultado?\n[1] SI\n[2] NO");
-                                    try { //Inicio del trycatch
-                                        opcionif = leer.nextInt();
-                                    } catch (Exception e) {
-                                        System.out.println("Error\nElije una opcion correcta");
-                                    } //Fin del trycatch
+                                if (raiz != 0) {//If para evitar problemas tontos
+                                        System.out.println("\n¿Quieres guardar el numero que te ha dado como resultado?\n[1] SI\n[2] NO");
+                                        try { //Inicio del trycatch
+                                            opcionif = leer.nextInt();
+                                        } catch (Exception e) {
+                                            System.out.println("Error\nElije una opcion correcta");
+                                        } //Fin del trycatch
 
-                                    if (opcionif == 1) { //If para validar si quiere guardar
-                                        guardar2 = calculadora.getGuardar2();
-                                    } //Fin del if para valdiar si quiere guardar
+                                        if (opcionif == 1) { //If para validar si quiere guardar
+                                            guardar2 = calculadora.getGuardar2();
+                                        } //Fin del if para valdiar si quiere guardar   
+                                    } //Fin del if para evitar problemas tontos
+
                                 break;
-
+                            
                             case "6":
+                                    guardar = 0;
+                                    break;
+
+                            case "7":
                                 init2 = false;
                                 break;
                             default:
