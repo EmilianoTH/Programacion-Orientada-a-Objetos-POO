@@ -22,6 +22,7 @@ public class MaindeEmiliano {
         LibreriasdeUnidades format  = new LibreriasdeUnidades(); //Objeto de librerias
         LibreriasdeTemperaturas forma = new LibreriasdeTemperaturas(); //Objeto de librerias
         LibreriasdeCalculadora calculadora = new LibreriasdeCalculadora(); //Objeto de librerias
+        int opcionif = 0;
         boolean init1 = true, init2 = true; //Booleanos necesarios
         double unidad = 0, raiz = 0, guardar2 = 0; //Variable que utilizara las unidades
         float temperatura = 0, operabasica1 = 0, operabasica2 = 0, guardar = 0; //Variable que utilizara la temperatura
@@ -176,14 +177,14 @@ public class MaindeEmiliano {
                                                 operabasica2 = leer.nextFloat();
                                                 if (operabasica2 >= 0 || operabasica2 <= 0) {
                                                     if (Integer.parseInt(op1, 10) == 1) //If que verifique que quiere sumar
-                                                        guardar = calculadora.mostrarsuma(guardar, operabasica2);
+                                                        calculadora.mostrarsuma(guardar, operabasica2);
                                                     if (Integer.parseInt(op1, 10) == 2) //If que verifique que quiere restar
-                                                        guardar = calculadora.mostraresta(guardar, operabasica2);
+                                                        calculadora.mostraresta(guardar, operabasica2);
                                                     if (Integer.parseInt(op1, 10) == 3) //If que verifique que quiere multiplicar
-                                                        guardar = calculadora.mostrarmulti(guardar, operabasica2);
+                                                        calculadora.mostrarmulti(guardar, operabasica2);
                                                 }
                                                 if (operabasica2 != 0) { //If que prohiba dividir entre 0, ifelse 1
-                                                        guardar = calculadora.mostrardivision(guardar, operabasica2);
+                                                        calculadora.mostrardivision(guardar, operabasica2);
                                                 } else {
                                                     System.out.println("No introduzca el numero 0");
                                                 } //Fin de ifelse 1
@@ -197,14 +198,14 @@ public class MaindeEmiliano {
                                                 operabasica2 = leer.nextFloat();
                                                 if ((operabasica2 >= 0 || operabasica2 <= 0) || (operabasica1 >= 0 || operabasica1 <= 0)) {
                                                     if (Integer.parseInt(op1, 10) == 1) //If que verifique que quiere sumar
-                                                        guardar = calculadora.mostrarsuma(operabasica1, operabasica2);
+                                                        calculadora.mostrarsuma(operabasica1, operabasica2);
                                                     if (Integer.parseInt(op1, 10) == 2) //If que verifique que quiere restar
-                                                        guardar = calculadora.mostraresta(operabasica1, operabasica2);
+                                                        calculadora.mostraresta(operabasica1, operabasica2);
                                                     if (Integer.parseInt(op1, 10) == 3) //If que verifique que quiere multiplicar
-                                                        guardar = calculadora.mostrarmulti(operabasica1, operabasica2);
+                                                        calculadora.mostrarmulti(operabasica1, operabasica2);
                                                 }
                                                 if (operabasica2 != 0) { //If que prohiba dividir entre 0, ifelse 2
-                                                        guardar = calculadora.mostrardivision(operabasica1, operabasica2);
+                                                        calculadora.mostrardivision(operabasica1, operabasica2);
                                                 } else {
                                                     System.out.println("No introduzca el numero 0");
                                                 } //Fin de ifelse 2
@@ -214,15 +215,27 @@ public class MaindeEmiliano {
                                         } //Fin del if
                                     }//Fin  de if 1
 
+                                    System.out.println("\n¿Quieres guardar el numero que te ha dado como resultado?\n[1] SI\n[2] NO");
+                                    try { //Inicio del trycatch
+                                        opcionif = leer.nextInt();
+                                    } catch (Exception e) {
+                                        System.out.println("Error\nElije una opcion correcta");
+                                    } //Fin del trycatch
+
+                                    if (opcionif == 1) { //If para validar si quiere guardar
+                                        guardar = calculadora.getGuardar();
+                                    } //Fin del if para valdiar si quiere guardar
+
                                 break;
                             
                             case "5":
                                 System.out.println("\n\nEscribe el numero 1 para trabajar con el numero que has guardado\nEscribe el numero 2 para trabajar con numeros reiniciados"); //Validar
                                 op2 = leer.next();
+                                guardar2 = guardar;
                                 if (op2.matches("^[12]")) { //Validar que no meta letras, if 1
                                     if (Integer.parseInt(op2, 10) == 1) { //If 2
                                         if (guardar2 >0) { //If 4
-                                            guardar2 = calculadora.mostrarraiz(guardar2);
+                                            calculadora.mostrarraiz(guardar2);
                                         } //Fin del if 4
                                     } //Fin del if 2
                                     if (Integer.parseInt(op2, 10) == 2) { //If 3
@@ -230,7 +243,7 @@ public class MaindeEmiliano {
                                         try {
                                             raiz = leer.nextDouble();
                                             if (raiz > 0) { //Ifelse 1
-                                                guardar2 = calculadora.mostrarraiz(raiz);
+                                               calculadora.mostrarraiz(raiz);
                                             } else {
                                                 System.out.println("Error\nNo escriba 0 ni numeros negativos");
                                             } //Fin de ifelse 1
@@ -240,6 +253,16 @@ public class MaindeEmiliano {
                                     } //Fin del if 3
                                 } // Fin del if 1
 
+                                System.out.println("\n¿Quieres guardar el numero que te ha dado como resultado?\n[1] SI\n[2] NO");
+                                    try { //Inicio del trycatch
+                                        opcionif = leer.nextInt();
+                                    } catch (Exception e) {
+                                        System.out.println("Error\nElije una opcion correcta");
+                                    } //Fin del trycatch
+
+                                    if (opcionif == 1) { //If para validar si quiere guardar
+                                        guardar2 = calculadora.getGuardar2();
+                                    } //Fin del if para valdiar si quiere guardar
                                 break;
 
                             case "6":
