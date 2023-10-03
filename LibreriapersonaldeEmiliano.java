@@ -31,14 +31,14 @@ public class LibreriapersonaldeEmiliano {
     }
 
     public static void Maincalculadora(){
-        System.out.println("\n\n|--------------CALCULADORA-----------------|");
-        System.out.println("|1) Suma                                   |");
-        System.out.println("|2) Resta                                  |");
-        System.out.println("|3) Multiplicacion                         |");
-        System.out.println("|4) Division                               |");
-        System.out.println("|5) Raiz                                   |");
-        System.out.println("|6) Reiniciar numero guardado              |");
-        System.out.println("|7) Salir                                  |");
-        System.out.println("|------------------------------------------|");
+        System.out.println("\n\n|--------------CALCULADORA-------------------|");
+        System.out.println("|1) Suma                                     |");
+        System.out.println("|2) Resta                                    |");
+        System.out.println("|3) Multiplicacion                           |");
+        System.out.println("|4) Division                                 |");
+        System.out.println("|5) Raiz                                     |");
+        System.out.println("|6) Reiniciar numero guardado                |");
+        System.out.println("|7) Salir                                    |");
+        System.out.println("|--------------------------------------------|");
     }
 }
