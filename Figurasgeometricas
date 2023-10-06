@@ -1,0 +1,33 @@
+package fg;
+
+/**
+ * @author Mariana Midory 
+ */
+public abstract class Figurasgeometricas {
+    //atribuot general
+    private float side1;
+    
+    /**
+     * X Metodo para establecer el 1er lado 
+     * de cualquier figura geométrica
+     */
+    public void setSide1(float x){
+        this.side1 = x;
+    }//fin del void 
+    
+    public float getSide1(){
+        return this.side1;
+    }//fin de regreso
+    
+    //Crear metodos polimorficos
+    /**
+     * @return Retorna el valor del perimetro de acuerdo
+     * con la figura y los valores proporcionados
+     */
+    public abstract float getPerimeter();
+     /**
+     * @return Retorna el valor del perimetro de acuerdo
+     * con la figura y los valores proporcionados
+     */
+     public abstract float getArea();
+}//fin de la clase principal
