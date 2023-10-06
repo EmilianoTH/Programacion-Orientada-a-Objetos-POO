@@ -1,0 +1,36 @@
+package fg;
+import java.util.Scanner;
+/**
+ *
+ * @author ibramiro
+ */
+public class FG {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        //varibles
+        String side;
+        Scanner sc = new Scanner(System.in); //es la forma de introducir datos
+        Circulo c = new Circulo();
+        Elipse el = new Elipse(10,20);
+        
+        /**
+         * se encarga de validar si se esta ingresando el valor del rango 
+         * establecido correctamente
+         */
+        try{
+            System.out.println("Dame le radio: ");
+            side = sc.next();
+            c.setSide1(Float.parseFloat(side));
+            System.out.println("El perimetro es: " + c.getPerimeter());
+            System.out.println("El area es: " + c.getArea());
+            
+            System.out.println("El perimetro de la elipse es: "+ el.getPerimeter());
+            System.out.println("El area de la elipse es: "+ el.getArea());
+        } catch (Exception e) {
+             System.out.println("\nError" + e.getMessage());
+        }//fin del try-catch de validacion 
+    }//fin de clase main
+}//fin de la clase principal
