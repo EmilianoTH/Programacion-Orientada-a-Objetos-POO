@@ -1,0 +1,30 @@
+package fg;
+
+/**
+ *
+ * @author ibramiro
+ */
+public class Circulo extends Figurasgeometricas{
+    
+    public Circulo(){
+        super.setSide1(0);
+    }//fin de la clase circulo
+    
+    /**
+     * @param x Construtor para circulo inicializando el x
+     */
+    public Circulo(float x){
+        super.setSide1(x);
+    }//fin de la clase circulo
+    
+    @Override
+    public float getPerimeter() {
+        return (float) (Math.PI * (super.getSide1()*2));
+    }//fin del clase 
+
+    @Override
+    public float getArea() {
+        return (float) (Math.PI * (super.getSide1()* (super.getSide1())));
+    }//fin de la clase de area
+    
+}//fin de la clase cirucla
