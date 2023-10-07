@@ -1,0 +1,61 @@
+package fg;
+
+/**
+ *
+ * @author ibramiro
+ */
+public class Poligono extends Figurasgeometricas{
+    
+    private int lado;
+    private float apotema;
+    private float longitud;
+    
+    public Poligono(){
+        super.setSide1(0);
+        this.lado=0;
+        this.apotema=0;
+        this.longitud=0;
+    }//fin de la clase circulo
+    
+    public Poligono(float x, int nlado, float y, float z){
+        super.setSide1(x);
+        this.lado = nlado; 
+        this.apotema = y;
+        this.longitud = z;
+    }//fin de la clase circulo
+    
+    public void setnlado(int x){
+        this.lado = x;
+    }//fin del void 
+    
+    public void setapotema(float x){
+        this.apotema = x;
+    }//fin del void 
+    
+    public void setlongitud(float x){
+        this.longitud = x;
+    }//fin del void 
+    
+    public int getnlado(){
+        return this.lado;
+    }//fin del get 
+    
+    public float getapotema(){
+        return this.apotema;
+    }//fin del get 
+    
+    public float getlongitud(){
+        return this.longitud;
+    }//fin del get 
+    
+    @Override
+    public float getPerimeter() {
+        return getnlado()*longitud;
+    }//fin del get perimetro
+
+    @Override
+    public float getArea() {
+        return getapotema()*getPerimeter()/2;
+    }//fin del get area
+    
+}//fin de la clase poligono
