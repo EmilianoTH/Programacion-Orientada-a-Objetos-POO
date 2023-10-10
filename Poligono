@@ -1,15 +1,27 @@
+/* Emiliano De La Torre Hernandez
+ * Mariana Midory Iniguez Rodriguez
+ * Angel Eduardo Munoz Perez 
+ * 08-09-2023
+ * Poligono
+ * Centro Universitario de los Altos | Universidad de Guadalajara
+ * Ingenieria en computacion
+ * Profesor: Sergio Franco Casillas
+ * Descripcion: usada para tomar los valores del poligono y transformarlo al 
+ * area y el perimetro establecido
+ */
 package fg;
-
 /**
  *
- * @author ibramiro
+ * @author Mariana Midory Iniguez Rodriguez 
  */
 public class Poligono extends Figurasgeometricas{
-    
+    //atributos usados 
     private int lado;
     private float apotema;
     private float longitud;
-    
+    /***
+     * guarda el valor del poligono con los atributos ya establecidos 
+     */
     public Poligono(){
         super.setSide1(0);
         this.lado=0;
@@ -17,6 +29,13 @@ public class Poligono extends Figurasgeometricas{
         this.longitud=0;
     }//fin de la clase circulo
     
+    /***
+     * 
+     * @param x ingresa el valor en la class principal
+     * @param nlado ingresa los lados del poligono
+     * @param y ingresa el valor de la apotema 
+     * @param z ingresa el valor de la longitud
+     */
     public Poligono(float x, int nlado, float y, float z){
         super.setSide1(x);
         this.lado = nlado; 
@@ -24,38 +43,69 @@ public class Poligono extends Figurasgeometricas{
         this.longitud = z;
     }//fin de la clase circulo
     
+    /***
+     * 
+     * @param x guarda el valor de los lados
+     */
     public void setnlado(int x){
         this.lado = x;
     }//fin del void 
     
+    /***
+     * 
+     * @param x guarda el valor de la apotema
+     */
     public void setapotema(float x){
         this.apotema = x;
     }//fin del void 
     
+    /***
+     * 
+     * @param x guarda el valor de la longitud
+     */
     public void setlongitud(float x){
         this.longitud = x;
     }//fin del void 
     
+    /***
+     * 
+     * @return el valor de los lados
+     */
     public int getnlado(){
         return this.lado;
     }//fin del get 
     
+    /***
+     * 
+     * @return el valor de la apotema
+     */
     public float getapotema(){
         return this.apotema;
     }//fin del get 
     
+    /***
+     * 
+     * @return el valor de la longitud 
+     */
     public float getlongitud(){
         return this.longitud;
     }//fin del get 
     
+    /***
+     * 
+     * @return la operacion del perimetro
+     */
     @Override
     public float getPerimeter() {
         return getnlado()*longitud;
     }//fin del get perimetro
-
+    
+    /***
+     * 
+     * @return la operacion del area
+     */
     @Override
     public float getArea() {
         return getapotema()*getPerimeter()/2;
     }//fin del get area
-    
 }//fin de la clase poligono
