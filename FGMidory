@@ -24,15 +24,19 @@ public class FGMidory {
         Elipse formato2 = new Elipse();//Objeto de librerias
         Poligono formato3 = new Poligono();//Objeto de librerias
         TrianguloEscaleno formato4 = new TrianguloEscaleno();//Objeto de librerias
-        Trianguloequilatero formato5= new Trianguloequilatero();//Objeto de librerias
-        TrianguloIsoceles formato6= new TrianguloIsoceles();//Objeto de librerias
+        Trianguloequilatero formato5 = new Trianguloequilatero();//Objeto de librerias
+        TrianguloIsoceles formato6 = new TrianguloIsoceles();//Objeto de librerias
+        Cuadrado formato7 = new Cuadrado();//Objeto de librerias
+        Rectangulo formato8 = new Rectangulo();//Objeto de librerias
+        Rombo formato9 = new Rombo();//Objeto de librerias
         //varibles
         String side;//string de lado usado en el radio 
         int pass = 0;//entero usado para dar el valor de los lados 
         float op;//flotante del valor de la apotema
         float lo;//flotante del valor de la longitud
         float lado1 = 0,lado2 = 0,lado3 = 0;//flotantes para los lados del triangulo
-        float altura = 0;//flotante de la altura 
+        float diame = 0, diama = 0;//flotantes para las diagonales del rombo
+        float altura = 0;//flotante de la altura y algunos casos la base
         int  opcion = 0, option, otro;//variables para seleccionar formato de entrada
         //while encarga de ejecutar hasta que el usuario decida salir
         while (opcion !=6){
@@ -185,15 +189,27 @@ public class FGMidory {
                                         System.out.println("Dame el lado 3");
                                         lado3 = sc.nextInt();
                                         formato4.setlado3(lado3);
-                                        System.out.println("Dame la altura: ");
-                                        altura = sc.nextInt();
-                                        formato4.setaltura(altura);
-                                        System.out.println("El perimetro es: " + formato4.getPerimeter());
-                                        System.out.println("El area es: " + formato4.getArea());
                                         } catch (Exception e) {
                                         sc.nextLine();
                                         System.out.println("\nError. " + e.getMessage());
                                         }//fin del try-catch de validacion 
+                                        //verifica si son diferentes los lados
+                                        if(lado1 != lado2 && lado1 != lado3 && lado2 != lado3){
+                                            //se encarga de validar si se esta ingresando el valor 
+                                            //del rango establecido correctamente
+                                            try{
+                                                System.out.println("Dame la altura: ");
+                                                altura = sc.nextInt();
+                                                formato4.setaltura(altura);
+                                                System.out.println("El perimetro es: " + formato4.getPerimeter());
+                                                System.out.println("El area es: " + formato4.getArea());
+                                            } catch (Exception e) {
+                                                sc.nextLine();
+                                              System.out.println("\nError. " + e.getMessage());
+                                            }//fin del try-cath
+                                        }else{
+                                            System.out.println("Los lados deben ser diferentes valores");
+                                        }//fin del if else
                                     }else if(otro == 2){
                                         System.out.println("\nRegresara al menu principal");
                                     }//fin del else if
@@ -234,7 +250,7 @@ public class FGMidory {
                                             System.out.println("\nError. " + e.getMessage());
                                         }//fin del try-catch
                                     }else if(otro == 2){
-                                        System.out.println("\nRegresara al menu");
+                                        System.out.println("\nVolvera al menu");
                                     }//fin del else if
                                 }//fin del while
                                 break;
@@ -257,19 +273,35 @@ public class FGMidory {
                                     }//fin del try catch
                                     //ejecuta el codigo 
                                     if(otro == 1){
+                                        try{
                                         System.out.println("Dame el valor del lado diferente (base): ");
                                         lado1 = sc.nextInt();
                                         formato6.setSide1(lado1);
                                         System.out.println("Dame el valor del lado igual: ");
                                         lado2 = sc.nextInt();
                                         formato6.setlado2(lado2);
-                                        System.out.println("Dame la altura: ");
-                                        altura = sc.nextInt();
-                                        formato6.setaltura(altura);
-                                        System.out.println("El perimetro es: " + formato6.getPerimeter());
-                                        System.out.println("El area es: " + formato6.getArea());
+                                        }catch (Exception e){
+                                            sc.nextLine();
+                                            System.out.println("\nError. " + e.getMessage());
+                                        }//fin del try-catch
+                                        if(lado1 != lado2){
+                                            //se encarga de validar si se esta ingresando el valor 
+                                            //del rango establecido correctamente
+                                            try{
+                                                System.out.println("Dame la altura: ");
+                                                altura = sc.nextInt();
+                                                formato6.setaltura(altura);
+                                                System.out.println("El perimetro es: " + formato6.getPerimeter());
+                                                System.out.println("El area es: " + formato6.getArea());
+                                            }catch (Exception e){
+                                            sc.nextLine();
+                                            System.out.println("\nError. " + e.getMessage());
+                                        }//fin del try-catch
+                                        }else{
+                                            System.out.println("El lado diferente (base) no debe ser igual a los otros lados");
+                                        }//fin del else 
                                     }else if(otro == 2){
-                                        System.out.println("\nRegresara al menu");
+                                        System.out.println("\nVolvera al menu");
                                     }//fin del else if
                                 }//fin del while
                                 break;
@@ -309,7 +341,7 @@ public class FGMidory {
                             formato3.setnlado(pass);
                         }catch (Exception e) {
                             sc.nextLine();
-                            System.out.println("\nError " + e.getMessage());
+                            System.out.println("\nError. " + e.getMessage());
                         }//fin del try-catch de validacion 
                         //ejecuta lo demas si se respeta el rango establecito
                         if(pass >= 5 && pass <=12){
@@ -324,22 +356,170 @@ public class FGMidory {
                                 formato3.setapotema(op);
                                 System.out.println("El perimetro es: " + formato3.getPerimeter());
                                 System.out.println("El area es: " + formato3.getArea());
-                             }catch (Exception e) {
+                            }catch (Exception e) {
                                 sc.nextLine();
-                                System.out.println("\nError " + e.getMessage());
+                                System.out.println("\nError. " + e.getMessage());
                             }//fin del try-catch de validacion 
                             //si no se respeto el rango, se da una advertencia
-                            }else{
-                                System.out.println("\nEste codigo no permite pasar de 12");
-                                System.out.println("O ser menor de 5 lados\n");
-                            }//fin del else 
+                        }else{
+                            System.out.println("\nEste codigo no permite pasar de 12");
+                            System.out.println("O ser menor de 5 lados\n");
+                        }//fin del else 
                     }else if(option == 2){
-                        System.out.println("\nRegresa al menu");
+                        System.out.println("\nVolvera al menu");
                     }//fin del else if
                 }//fin del while 
                     break;
                 case 5:
-                        System.out.println("Aun no tengo el codigo");
+                        option = 0;//evita ciertos problemas con el while al estar igualado a 0 
+                    //termina el caso hasta que el usuario decida salir de el 
+                        while(option !=4){
+                            System.out.println("\n______________");
+                            System.out.println("1)Cuadrado   ");
+                            System.out.println("2)Rectangulo ");
+                            System.out.println("3)Rombo      ");
+                            System.out.println("4)Salir      ");
+                            System.out.print("Opcion:   ");
+                            //se encarga de validar si se esta ingresando el valor 
+                            //del rango establecido correctamente
+                            try {
+                                option = sc.nextInt();
+                            } catch (Exception e) {
+                                sc.nextLine();
+                                System.out.println("\nError. " + e.getMessage());
+                            }//fin del try catch
+                            switch(option){
+                                case 1:
+                                otro = 0;//evita ciertos problemas con el while 
+                                //termina el caso hasta que el usuario decida salir de el 
+                                while(otro !=2){
+                                    System.out.println("\n____________________");
+                                    System.out.println("|1) Ingresar datos  |");
+                                    System.out.println("|2) Salir           |");  
+                                    System.out.println("|___________________|");
+                                    System.out.print("Opcion: ");
+                                    //se encarga de validar si se esta ingresando el valor 
+                                    //del rango establecido correctamente
+                                    try {
+                                        otro = sc.nextInt();
+                                    } catch (Exception e) {
+                                        sc.nextLine();
+                                        System.out.println("\nSeleccione correctamente\n");
+                                    }//fin del try catch
+                                    //ejecuta el codigo 
+                                    if(otro == 1){
+                                        //se encarga de validar si se esta ingresando el valor 
+                                        //del rango establecido correctamente
+                                        try{
+                                            System.out.println("Dame el valor del lado: ");
+                                            lado1 = sc.nextFloat();
+                                            formato7.setSide1(lado1);
+                                            System.out.println("El perimetro es: " + formato7.getPerimeter());
+                                            System.out.println("El area es: " + formato7.getArea());
+                                        }catch (Exception e) {
+                                            sc.nextLine();
+                                            System.out.println("\nError. " + e.getMessage());
+                                        }//fin del try-catch de validacion 
+                                    }else if(otro == 2){
+                                        System.out.println("\nVolvera al menu");
+                                    }//fin del else if
+                                }//fin del while (del caso) 
+                                    break;
+                                case 2:
+                                otro = 0;//evita ciertos problemas con el while 
+                                //termina el caso hasta que el usuario decida salir de el 
+                                while(otro !=2){
+                                    System.out.println("\n____________________");
+                                    System.out.println("|1) Ingresar datos  |");
+                                    System.out.println("|2) Salir           |");  
+                                    System.out.println("|___________________|");
+                                    System.out.print("Opcion: ");
+                                    //se encarga de validar si se esta ingresando el valor 
+                                    //del rango establecido correctamente
+                                    try {
+                                        otro = sc.nextInt();
+                                    } catch (Exception e) {
+                                        sc.nextLine();
+                                        System.out.println("\nSeleccione correctamente\n");
+                                    }//fin del try catch
+                                    //ejecuta el codigo 
+                                    if(otro == 1){
+                                        //se encarga de validar si se esta ingresando el valor 
+                                        //del rango establecido correctamente
+                                        try{
+                                            System.out.println("Dame la base: ");
+                                            lado1 = sc.nextFloat();
+                                            formato8.setSide1(lado1);
+                                            System.out.println("Dame la altura: ");
+                                            altura = sc.nextFloat();
+                                            formato8.setaltura(altura);
+                                            System.out.println("El perimetro es: " + formato8.getPerimeter());
+                                            System.out.println("El area es: " + formato8.getArea());
+                                        }catch (Exception e) {
+                                            sc.nextLine();
+                                            System.out.println("\nError. " + e.getMessage());
+                                        }//fin del try-catch de validacion 
+                                    }else if(otro == 2){
+                                        System.out.println("\nVolvera al menu");
+                                    }//fin del else if
+                                }//fin del while (del caso) 
+                                    break;
+                                case 3:
+                                otro = 0;//evita ciertos problemas con el while 
+                                //termina el caso hasta que el usuario decida salir de el 
+                                while(otro !=2){
+                                    System.out.println("\n____________________");
+                                    System.out.println("|1) Ingresar datos  |");
+                                    System.out.println("|2) Salir           |");  
+                                    System.out.println("|___________________|");
+                                    System.out.print("Opcion: ");
+                                    //se encarga de validar si se esta ingresando el valor 
+                                    //del rango establecido correctamente
+                                    try {
+                                        otro = sc.nextInt();
+                                    } catch (Exception e) {
+                                        sc.nextLine();
+                                        System.out.println("\nSeleccione correctamente\n");
+                                    }//fin del try catch
+                                    //ejecuta el codigo 
+                                    if(otro == 1){
+                                        //se encarga de validar si se esta ingresando el valor 
+                                        //del rango establecido correctamente
+                                        try{
+                                            System.out.println("Dame el valor del lado: ");
+                                            lado1 = sc.nextFloat();
+                                            formato9.setSide1(lado1);
+                                            System.out.println("Dame la diagonal mayor: ");
+                                            diama = sc.nextFloat();
+                                            formato9.setdiagonalmay(diama);
+                                            System.out.println("Dame la diagonal menor: ");
+                                            diame = sc.nextFloat();
+                                            formato9.setdiagonalmin(diame);
+                                        }catch (Exception e) {
+                                            sc.nextLine();
+                                            System.out.println("\nError. " + e.getMessage());
+                                        }//fin del try-catch de validacion 
+                                        //valida si se cumple la diagonal mayor sea mayor
+                                        if(diama > diame){
+                                            System.out.println("El perimetro es: " + formato9.getPerimeter());
+                                            System.out.println("El area es: " + formato9.getArea());
+                                        }else{
+                                            System.out.println("La diagonal mayor debe ser mayor");
+                                            System.out.println("No debe ser mayor la diagonal menor\n");
+                                        }//fin del else
+                                    }else if(otro == 2){
+                                        System.out.println("\nVolvera al menu");
+                                    }//fin del else if
+                                }//fin del while (del caso) 
+                                    break;
+                                case 4:
+                                        System.out.println("\nRegresa al menu principal");
+                                    break;
+                                default:
+                                    System.out.println("\nOpcion no valida");
+                                break;
+                            }//fin del switch (uno)
+                        }//fin del while
                     break;
                 case 6: 
                         System.out.println("\nAdios");
