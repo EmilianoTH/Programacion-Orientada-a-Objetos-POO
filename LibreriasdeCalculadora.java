@@ -8,10 +8,15 @@
  * Profesor: Sergio Franco Casillas
  * Descripcion: convierte el ingreso del valor a la temperatura que tu hayas elegido
  */
-public class LibreriasdeCalculadora {
+
+
+/**
+ *
+ * @author Emiliano de la Torre Hernandez
+ */
+public class LibreriasdeCalculadora1 {
     /* Atributos */
     float guardar = 0;
-    double guardar2 = 0;
 
     /* Metodos */
     /**
@@ -20,6 +25,7 @@ public class LibreriasdeCalculadora {
      * @return Retornar la suma de ambos numeros
      */
     private float suma(float num1, float num2){
+        guardar = num1+num2;
         return num1+num2;
     }//fin de la clase privada de la suma
 
@@ -31,21 +37,14 @@ public class LibreriasdeCalculadora {
     public float getGuardar() {
         return guardar;
     }
-
-    /**
-     * 
-     * @return variable guardar 2
-     */
-    public double getGuardar2() {
-        return guardar2;
-    }
-
+    
     /**
      * @param num1 Numero a restar
      * @param num2 Numero a restar
      * @return Retornar la resta de ambos numeros
      */
     private float resta(float num1, float num2){
+        guardar = num1-num2;
         return num1-num2;
     }//de la clase privada de la resta
     
@@ -55,6 +54,7 @@ public class LibreriasdeCalculadora {
      * @return Retornar la multiplicacion de ambos numeros
      */
     private float multi(float num1, float num2){
+        guardar = num1*num2;
         return num1*num2;
     }//fin de la clase privada de la multiplicacion
 
@@ -64,6 +64,7 @@ public class LibreriasdeCalculadora {
      * @return Retornar la division de ambos numeros
      */
     private float division(float num1, float num2){
+        guardar = num1/num2;
         return num1/num2;
     }//fin de la clase privada de la division
 
@@ -72,8 +73,20 @@ public class LibreriasdeCalculadora {
      * @return Retornar raiz cuadrada
      */
     private double raiz(double num){
-        return Math.sqrt(num);
+        guardar = (float)(Math.sqrt(num));
+        return (float)(Math.sqrt(num));
     }//fin de la clase privada de la raiz 
+    
+    /**
+     * 
+     * @param num Numero a sacar la potencia
+     * @param expon Exponente al que se elevará el numero
+     * @return Retornar el resultado
+     */
+    private double potencia(double num, int expon){
+        guardar = (float)(Math.pow(num, expon));
+        return (float)(Math.pow(num, expon));
+    } //Fin de la clase privada de potencia
     
     /**
      * @param num1 Numero a sumar
@@ -126,6 +139,8 @@ public class LibreriasdeCalculadora {
         double resultado = 0;
         resultado = raiz(num);
         System.out.println("El resultado de la raiz es: "+resultado);
-        guardar2 = resultado;
+        guardar = (float) resultado;
     }//fin de la clase mostrar raiz 
-}//fin de la clase principal 
+    
+    
+} //Fin de clase calculadora
