@@ -1,4 +1,10 @@
-public class LibreriasdeUnidades { 
+package libreriasdeunidades;
+
+/**
+ *
+ * @author Emiliano de la Torre Hernandez
+ */
+public class LibreriasdeUnidades1 {
     /* Metodos */
     /**
      * 
@@ -18,7 +24,7 @@ public class LibreriasdeUnidades {
      * @param opcion2 Tipo de unidad a la que quiere ser transformado
      * @return Numero ya transformado
      */
-    private static double Unidadgeneral(int opcion1, int opcion2, double numero){
+    public double Unidadgeneral(int opcion1, int opcion2, double numero){
         switch (opcion1) { //Switch 1
             case 1:
                 numero = numero*(0.01); //Centimetro a metro
@@ -55,7 +61,7 @@ public class LibreriasdeUnidades {
      * @param numero numero ya transformado a la medida general que es metros
      * @return Numero ya transformado en el resultado
      */
-    private static double Conversionadestino(int opcion2, double numero){
+    private double Conversionadestino(int opcion2, double numero){
          switch (opcion2) {
             case 1:
                 numero = numero*(100); //Metros a centimetros
@@ -70,11 +76,11 @@ public class LibreriasdeUnidades {
                 break;
 
             case 5:
-                numero = numero*(0.001);
+                numero = numero*(0.001); //Metros a KM
                 break;
 
             case 6:
-                numero = numero*(0.000621371);
+                numero = numero*(0.000621371); //Metros a Millas
                 break;
 
             default:
@@ -82,5 +88,5 @@ public class LibreriasdeUnidades {
         }
 
         return numero;
-    }
-}
+    } //Fin de metodo
+} //Fin de clase
